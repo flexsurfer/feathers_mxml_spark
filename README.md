@@ -1,6 +1,9 @@
 # Feathers MXML Spark Library
 
 The library with components extended Feathers components [Feathers SDK](http://feathersui.com/sdk/), to work like with Flex Spark components
+
+![alt tag](https://raw.githubusercontent.com/flexsurfer/feathers_mxml_spark/master/feathers.png)
+
 ```XML
 <spark:VGroup width="100%" gap="20" paddingTop="20" top="50">
     <spark:HGroup horizontalAlign="center" gap="10" width="100%" paddingRight="20" paddingLeft="20" top="50" >
