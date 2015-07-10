@@ -1,7 +1,7 @@
 # Feathers MXML Spark Library
 
 The library with components extended Feathers components [Feathers SDK](http://feathersui.com/sdk/), to work like with Flex Spark components
-```
+```ActionScript
 <spark:VGroup width="100%" gap="20" paddingTop="20" top="50">
     <spark:HGroup horizontalAlign="center" gap="10" width="100%" paddingRight="20" paddingLeft="20" top="50" >
       <spark:Button width="100%" height="80" id="button" label="Click Me" triggered="button1_triggeredHandler(event)"/>
