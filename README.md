@@ -15,5 +15,6 @@ The library with components extended Feathers components [Feathers SDK](http://f
   </spark:VGroup>
 ```
 
-Known issues
-The editor will highlight the percent values in red. However, the compiler will compile this file without issues. This issue can be fixed only in a future version of the Feathers SDK.
+### Known issues
+
+The editor will highlight percent values in red. However, the compiler will compile this file without issues. This issue can be fixed only in a future version of the Feathers SDK.
