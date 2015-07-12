@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<spark:Screen xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:spark="feathers.spark.*"
+                   xmlns:layout="feathers.layout.*" xmlns:controls="feathers.controls.*">
+
+  <spark:layout>
+    <layout:VerticalLayout horizontalAlign="center" paddingTop="20" gap="50"/>
+  </spark:layout>
+
+    <spark:Label text="Second Screen"/>
+
+    <spark:Button label="Ok"/>
+
+
+</spark:Screen>

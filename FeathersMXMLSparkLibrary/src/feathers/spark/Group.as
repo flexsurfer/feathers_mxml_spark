@@ -1,6 +1,5 @@
 /**
- * Created by Andrey Shovkoplyas on 09.07.2015.
- * motor4ik@gmail.com
+ * Copyright Andrey Shovkoplyas [motor4ik@gmail.com]
  */
 package feathers.spark
 {

@@ -3,13 +3,13 @@
  */
 package feathers.spark
 {
-    import feathers.controls.Button;
+    import feathers.core.FeathersControl;
 
-    public class Button extends feathers.controls.Button
+    public class Spacer extends FeathersControl
     {
         private var _sparkLayoutData:SparkLayoutData;
 
-        public function Button()
+        public function Spacer()
         {
             super();
 

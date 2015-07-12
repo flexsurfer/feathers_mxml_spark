@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<spark:Screen xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:f="library://ns.feathersui.com/mxml"
+          xmlns:spark="feathers.spark.*">
+
+  <spark:layout>
+    <f:AnchorLayout/>
+  </spark:layout>
+
+  <spark:Button verticalCenter="0" horizontalCenter="0" label="Next Screen" triggered="button1_triggeredHandler(event)"/>
+
+    <fx:Script><![CDATA[
+        import starling.events.Event;
+
+        private function button1_triggeredHandler(event:Event):void {
+            dispatchEventWith(Event.COMPLETE);
+        }
+        ]]></fx:Script>
+</spark:Screen>
