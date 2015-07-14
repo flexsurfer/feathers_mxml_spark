@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<spark:PanelScreen xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:spark="feathers.spark.*" xmlns:data="feathers.data.*"
+                   title="Auto-complete" headerFactory="{BackButtonFactory.customHeaderFactory(cancel)}">
+
+  <spark:AutoComplete horizontalCenter="0" top="20"
+                      prompt="Fruits. Type 'ap' to see suggestions" >
+    <data:LocalAutoCompleteSource>
+      <data:ListCollection>
+        <fx:String>Apple</fx:String>
+        <fx:String>Apricot</fx:String>
+        <fx:String>Banana</fx:String>
+        <fx:String>Cantaloupe</fx:String>
+        <fx:String>Cherry</fx:String>
+        <fx:String>Grape</fx:String>
+        <fx:String>Lemon</fx:String>
+        <fx:String>Lime</fx:String>
+        <fx:String>Mango</fx:String>
+        <fx:String>Orange</fx:String>
+        <fx:String>Peach</fx:String>
+        <fx:String>Pineapple</fx:String>
+        <fx:String>Plum</fx:String>
+        <fx:String>Pomegranate</fx:String>
+        <fx:String>Raspberry</fx:String>
+        <fx:String>Strawberry</fx:String>
+        <fx:String>Watermelon</fx:String>
+      </data:ListCollection>
+    </data:LocalAutoCompleteSource>
+  </spark:AutoComplete>
+
+  <fx:Script><![CDATA[
+    import screens.ui.BackButtonFactory;
+    ]]></fx:Script>
+</spark:PanelScreen>

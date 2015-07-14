@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<f:StackScreenNavigatorApplication xmlns:fx="http://ns.adobe.com/mxml/2009"
+                                   xmlns:f="library://ns.feathersui.com/mxml" xmlns:spark="feathers.spark.*"
+                                   theme="feathers.themes.MetalWorksMobileTheme" rootScreenID="mainMenuScreen"
+                                   pushTransition="{Slide.createSlideLeftTransition()}"
+                                   popTransition="{Slide.createSlideRightTransition()}">
+
+    <spark:StackScreenNavigatorItem id="mainMenuScreen" screenRenderer="screens.MainMenuScreen">
+        <spark:pushEvents>
+            <spark:PushEventsObject>
+                <spark:PushEventObject event="{MainMenuEvents.SHOW_ALERT}" screenID="alertScreen"/>
+                <spark:PushEventObject event="{MainMenuEvents.SHOW_AUTO_COMPLETE}" screenID="autoCompleteScreen"/>
+                <spark:PushEventObject event="{MainMenuEvents.SHOW_BUTTON}" screenID="buttonScreen"/>
+                <spark:PushEventObject event="{MainMenuEvents.SHOW_BUTTON_GROUP}" screenID="buttonGroupScreen"/>
+                <spark:PushEventObject event="{MainMenuEvents.SHOW_CALLOUT}" screenID="calloutScreen"/>
+                <spark:PushEventObject event="{MainMenuEvents.SHOW_GROUPED_LIST}" screenID="groupedListScreen"/>
+            </spark:PushEventsObject>
+        </spark:pushEvents>
+    </spark:StackScreenNavigatorItem>
+
+    <spark:StackScreenNavigatorItem id="alertScreen" screenRenderer="screens.AlertScreen"/>
+    <spark:StackScreenNavigatorItem id="autoCompleteScreen" screenRenderer="screens.AutoCompleteScreen"/>
+    <spark:StackScreenNavigatorItem id="buttonScreen" screenRenderer="screens.ButtonScreen"/>
+    <spark:StackScreenNavigatorItem id="buttonGroupScreen" screenRenderer="screens.ButtonGroupScreen"/>
+    <spark:StackScreenNavigatorItem id="calloutScreen" screenRenderer="screens.CalloutScreen"/>
+
+    <spark:StackScreenNavigatorItem id="groupedListScreen" screenRenderer="screens.GroupedListScreen">
+        <spark:pushEvents>
+            <spark:PushEventsObject>
+                <spark:PushEventObject event="{GroupedListScreen.SHOW_SETTINGS}" screenID="groupedListSettingsScreen"/>
+            </spark:PushEventsObject>
+        </spark:pushEvents>
+    </spark:StackScreenNavigatorItem>
+
+    <spark:StackScreenNavigatorItem id="groupedListSettingsScreen" screenRenderer="screens.GroupedListSettingsScreen"
+                                    pushTransition="{Cover.createCoverUpTransition()}"
+                                    popTransition="{Reveal.createRevealDownTransition()}"/>
+
+    <fx:Script>
+        <![CDATA[
+        import feathers.motion.Cover;
+        import feathers.motion.Reveal;
+        import feathers.motion.Slide;
+
+        import screens.GroupedListScreen;
+        import screens.events.MainMenuEvents;
+        ]]>
+    </fx:Script>
+</f:StackScreenNavigatorApplication>

@@ -24,7 +24,7 @@
         <packaging-android enabled="true" use-generated-descriptor="false" custom-descriptor-path="$MODULE_DIR$/FeathersSparkTest-app.xml" package-file-name="FeathersSparkTest" />
         <packaging-ios use-generated-descriptor="false" custom-descriptor-path="$MODULE_DIR$/FeathersSparkTest-app.xml" package-file-name="FeathersSparkTest" />
       </configuration>
-      <configuration name="FeathersScreensTest" target-platform="Mobile" main-class="FeathersScreenNavigatorTest" output-file="FeathersScreensTest.swf" output-folder="$MODULE_DIR$/out/production/FeathersSparkTest">
+      <configuration name="FeathersScreensTest" target-platform="Mobile" main-class="SparkComponentsExplorer" output-file="FeathersScreensTest.swf" output-folder="$MODULE_DIR$/out/production/FeathersSparkTest">
         <dependencies>
           <entries>
             <entry library-name="libs" library-level="application">
@@ -63,6 +63,7 @@
         <properties id="3124e4c5-d5b3-46ce-98cb-7fd90644140b" />
         <CLASSES>
           <root url="jar://$USER_HOME$/feathersSDK/frameworks/themes/MetalWorksMobileTheme/MetalWorksMobileTheme.swc!/" />
+          <root url="jar://E:/feathersSDK/frameworks/themes/MetalWorksMobileTheme/MetalWorksMobileTheme.swc!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -73,6 +74,7 @@
         <properties id="caa59e20-cbeb-4627-816d-2c308f5637a7" />
         <CLASSES>
           <root url="jar://$USER_HOME$/feathersSDK/frameworks/themes/MetalWorksMobileTheme/MetalWorksMobileTheme.swc!/" />
+          <root url="jar://E:/feathersSDK/frameworks/themes/MetalWorksMobileTheme/MetalWorksMobileTheme.swc!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

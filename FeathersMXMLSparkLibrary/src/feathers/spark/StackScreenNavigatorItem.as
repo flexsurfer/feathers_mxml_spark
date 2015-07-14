@@ -17,6 +17,7 @@ package feathers.spark
                                                  popEvent:String = null, properties:Object = null)
         {
             super(screen, pushEvents, popEvent, properties);
+            addPopEvent(ScreenEvent.CANCEL);
         }
 
         public function set screenRenderer(factory:IFactory):void
@@ -26,7 +27,7 @@ package feathers.spark
 
         public function set nextScreen(screenId:String):void
         {
-            setScreenIDForPushEvent(Event.COMPLETE, screenId);
+            setScreenIDForPushEvent(ScreenEvent.NEXT_SCREEN, screenId);
         }
     }
 }

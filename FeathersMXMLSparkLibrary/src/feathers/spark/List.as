@@ -3,30 +3,21 @@
  */
 package feathers.spark
 {
-    import feathers.controls.LayoutGroup;
-    import feathers.layout.AnchorLayout;
+    import feathers.controls.List;
 
-    public class Group extends LayoutGroup
+    public class List extends feathers.controls.List
     {
         private var _sparkLayoutData:SparkLayoutData;
-        protected var _sparkLayout:SparkLayout;
 
-        public function Group()
+        public function List()
         {
             super();
-            _sparkLayout = new SparkLayout(this);
+
             _sparkLayoutData = new SparkLayoutData(this);
-            initLayout();
         }
 
-        protected function initLayout():void
-        {
-            layout = new AnchorLayout();
-        }
-
-        [Bindable(event="change")]
         [PercentProxy("percentWidth")]
-
+        [Bindable(event="change")]
         override public function set width(value:Number):void
         {
             super.width = value;
@@ -37,17 +28,16 @@ package feathers.spark
             return super.width;
         }
 
-        [Bindable(event="change")]
         [PercentProxy("percentWidth")]
+        [Bindable(event="change")]
+        override public function get height():Number
+        {
+            return super.height;
+        }
 
         override public function set height(value:Number):void
         {
             super.height = value;
-        }
-
-        override public function get height():Number
-        {
-            return super.height;
         }
 
         public function get percentWidth():Number

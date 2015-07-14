@@ -5,6 +5,8 @@ package feathers.spark
 {
     import feathers.controls.Button;
 
+    [Event(name="click",type="starling.events.Event")]
+
     public class Button extends feathers.controls.Button
     {
         private var _sparkLayoutData:SparkLayoutData;
@@ -14,6 +16,29 @@ package feathers.spark
             super();
 
             _sparkLayoutData = new SparkLayoutData(this);
+        }
+
+        override protected function trigger():void
+        {
+            super.trigger();
+            dispatchEventWith("click");
+        }
+
+        public function set style(value:String):void
+        {
+            styleNameList.add(value);
+        }
+
+        [Bindable(event="change")]
+        public function set enabled(value:Boolean):void
+        {
+            super.isEnabled = value;
+        }
+
+        [Bindable(event="change")]
+        public function get enabled():Boolean
+        {
+            return super.isEnabled;
         }
 
         [PercentProxy("percentWidth")]

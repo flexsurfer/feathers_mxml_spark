@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<spark:PanelScreen xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:spark="feathers.spark.*" xmlns:data="feathers.data.*"
+                   title="Button Group" headerFactory="{BackButtonFactory.customHeaderFactory(cancel)}">
+
+    <spark:ButtonGroup horizontalCenter="0" verticalCenter="0">
+        <data:ListCollection>
+            <fx:String>One</fx:String>
+            <fx:String>Two</fx:String>
+            <fx:String>Three</fx:String>
+            <fx:String>Four</fx:String>
+        </data:ListCollection>
+    </spark:ButtonGroup>
+
+    <fx:Script><![CDATA[
+        import screens.ui.BackButtonFactory;
+        ]]></fx:Script>
+</spark:PanelScreen>

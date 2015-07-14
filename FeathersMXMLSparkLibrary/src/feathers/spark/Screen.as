@@ -4,6 +4,7 @@
 package feathers.spark
 {
     import feathers.controls.Screen;
+    import feathers.layout.AnchorLayout;
 
     import mx.core.IFactory;
 
@@ -12,6 +13,17 @@ package feathers.spark
         public function Screen()
         {
             super();
+            layout = new AnchorLayout();
+        }
+
+        protected function showNextScreen():void
+        {
+            dispatchEventWith(ScreenEvent.NEXT_SCREEN);
+        }
+
+        protected function cancel():void
+        {
+            dispatchEventWith(ScreenEvent.CANCEL);
         }
 
         public function newInstance():*

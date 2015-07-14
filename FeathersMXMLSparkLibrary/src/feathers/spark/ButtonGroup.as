@@ -1,32 +1,35 @@
 /**
- * Copyright Andrey Shovkoplyas [motor4ik@gmail.com]
+ * Created by ashovkoplias on 14.07.2015.
  */
 package feathers.spark
 {
-    import feathers.controls.LayoutGroup;
-    import feathers.layout.AnchorLayout;
+    import feathers.controls.ButtonGroup;
 
-    public class Group extends LayoutGroup
+    public class ButtonGroup extends feathers.controls.ButtonGroup
     {
         private var _sparkLayoutData:SparkLayoutData;
-        protected var _sparkLayout:SparkLayout;
 
-        public function Group()
+        public function ButtonGroup()
         {
             super();
-            _sparkLayout = new SparkLayout(this);
-            _sparkLayoutData = new SparkLayoutData(this);
-            initLayout();
-        }
 
-        protected function initLayout():void
-        {
-            layout = new AnchorLayout();
+            _sparkLayoutData = new SparkLayoutData(this);
         }
 
         [Bindable(event="change")]
-        [PercentProxy("percentWidth")]
+        public function set enabled(value:Boolean):void
+        {
+            super.isEnabled = value;
+        }
 
+        [Bindable(event="change")]
+        public function get enabled():Boolean
+        {
+            return super.isEnabled;
+        }
+
+        [PercentProxy("percentWidth")]
+        [Bindable(event="change")]
         override public function set width(value:Number):void
         {
             super.width = value;
@@ -37,17 +40,16 @@ package feathers.spark
             return super.width;
         }
 
-        [Bindable(event="change")]
         [PercentProxy("percentWidth")]
+        [Bindable(event="change")]
+        override public function get height():Number
+        {
+            return super.height;
+        }
 
         override public function set height(value:Number):void
         {
             super.height = value;
-        }
-
-        override public function get height():Number
-        {
-            return super.height;
         }
 
         public function get percentWidth():Number

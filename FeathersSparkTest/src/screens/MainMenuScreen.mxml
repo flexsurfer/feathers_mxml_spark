@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<spark:PanelScreen xmlns:f="library://ns.feathersui.com/mxml" xmlns:fx="http://ns.adobe.com/mxml/2009"
+                   xmlns:spark="feathers.spark.*" title="Feathers Spark">
+
+    <spark:List id="list" top="0" bottom="0" left="0" right="0" change="list_changeHandler(event)">
+        <f:ListCollection>
+            <fx:Object label="Alert" event="{MainMenuEvents.SHOW_ALERT}"/>
+            <fx:Object label="Auto-complete" event="{MainMenuEvents.SHOW_AUTO_COMPLETE}"/>
+            <fx:Object label="Button" event="{MainMenuEvents.SHOW_BUTTON}"/>
+            <fx:Object label="Button Group" event="{MainMenuEvents.SHOW_BUTTON_GROUP}"/>
+            <fx:Object label="Callout" event="{MainMenuEvents.SHOW_CALLOUT}"/>
+            <fx:Object label="Grouped List" event="{MainMenuEvents.SHOW_GROUPED_LIST}"/>
+            <fx:Object label="Item Renderer" event="{MainMenuEvents.SHOW_ITEM_RENDERER}"/>
+            <fx:Object label="Label" event="{MainMenuEvents.SHOW_LABEL}"/>
+            <fx:Object label="List" event="{MainMenuEvents.SHOW_LIST}"/>
+            <fx:Object label="Numeric Stepper" event="{MainMenuEvents.SHOW_NUMERIC_STEPPER}"/>
+            <fx:Object label="Page Indicator" event="{MainMenuEvents.SHOW_PAGE_INDICATOR}"/>
+            <fx:Object label="Picker List" event="{MainMenuEvents.SHOW_PICKER_LIST}"/>
+            <fx:Object label="Progress Bar" event="{MainMenuEvents.SHOW_PROGRESS_BAR}"/>
+            <fx:Object label="Scroll Text" event="{MainMenuEvents.SHOW_SCROLL_TEXT}"/>
+            <fx:Object label="Slider" event="{MainMenuEvents.SHOW_SLIDER}"/>
+            <fx:Object label="Spinner List" event="{MainMenuEvents.SHOW_SPINNER_LIST}"/>
+            <fx:Object label="Tab Bar" event="{MainMenuEvents.SHOW_TAB_BAR}"/>
+            <fx:Object label="Text Input" event="{MainMenuEvents.SHOW_TEXT_INPUT}"/>
+            <fx:Object label="Toggles" event="{MainMenuEvents.SHOW_TOGGLES}"/>
+        </f:ListCollection>
+    </spark:List>
+
+    <fx:Script><![CDATA[
+        import screens.events.MainMenuEvents;
+
+        import starling.events.Event;
+
+        private function list_changeHandler(event:Event):void
+        {
+            showNextScreen(this.list.selectedItem.event as String);
+        }
+        ]]>
+    </fx:Script>
+</spark:PanelScreen>

@@ -3,30 +3,45 @@
  */
 package feathers.spark
 {
-    import feathers.controls.LayoutGroup;
-    import feathers.layout.AnchorLayout;
+    import feathers.controls.GroupedList;
+    import feathers.controls.renderers.IGroupedListItemRenderer;
 
-    public class Group extends LayoutGroup
+    import mx.core.ClassFactory;
+
+    import mx.core.IFactory;
+
+    public class GroupedList extends feathers.controls.GroupedList
     {
         private var _sparkLayoutData:SparkLayoutData;
-        protected var _sparkLayout:SparkLayout;
+        private var _customItemRendererClass:Class;
 
-        public function Group()
+        public function GroupedList()
         {
             super();
-            _sparkLayout = new SparkLayout(this);
+
             _sparkLayoutData = new SparkLayoutData(this);
-            initLayout();
         }
 
-        protected function initLayout():void
+        public function set labelField(value:String):void
         {
-            layout = new AnchorLayout();
+            itemRendererProperties.labelField = value;
         }
 
-        [Bindable(event="change")]
-        [PercentProxy("percentWidth")]
+        [Inspectable(category="Data")]
+        
+        public function set itemRenderer(factory:IFactory):void
+        {
+            _customItemRendererClass = ClassFactory(factory).generator as Class;
+            itemRendererFactory = customItemRendererFactory;
+        }
 
+        private function customItemRendererFactory():IGroupedListItemRenderer
+        {
+            return new _customItemRendererClass();
+        }
+        
+        [PercentProxy("percentWidth")]
+        [Bindable(event="change")]
         override public function set width(value:Number):void
         {
             super.width = value;
@@ -37,17 +52,16 @@ package feathers.spark
             return super.width;
         }
 
-        [Bindable(event="change")]
         [PercentProxy("percentWidth")]
+        [Bindable(event="change")]
+        override public function get height():Number
+        {
+            return super.height;
+        }
 
         override public function set height(value:Number):void
         {
             super.height = value;
-        }
-
-        override public function get height():Number
-        {
-            return super.height;
         }
 
         public function get percentWidth():Number

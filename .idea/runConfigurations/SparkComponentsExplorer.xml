@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="FeathersScreensTest" type="FlashRunConfigurationType" factoryName="Flash App">
+  <configuration default="false" name="SparkComponentsExplorer" type="FlashRunConfigurationType" factoryName="Flash App">
     <option name="BCName" value="FeathersScreensTest" />
     <option name="IOSSimulatorSdkPath" value="" />
     <option name="adlOptions" value="" />
@@ -7,7 +7,7 @@
     <option name="appDescriptorForEmulator" value="Android" />
     <option name="debugTransport" value="USB" />
     <option name="debuggerSdkRaw" value="BC SDK" />
-    <option name="emulator" value="iPhone" />
+    <option name="emulator" value="iPhoneRetina" />
     <option name="emulatorAdlOptions" value="" />
     <option name="fastPackaging" value="true" />
     <option name="fullScreenHeight" value="0" />

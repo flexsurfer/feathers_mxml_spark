@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<spark:PanelScreen xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:spark="feathers.spark.*"
+                   title="Callout" headerFactory="{BackButtonFactory.customHeaderFactory(cancel)}">
+
+    <spark:Button id="rightButton" label="Right" click="{showCallout(rightButton, Callout.DIRECTION_RIGHT)}" top="20" left="20"/>
+    <spark:Button id="downButton" label="Down" click="{showCallout(downButton, Callout.DIRECTION_DOWN)}" top="20" right="20"/>
+    <spark:Button id="upButton" label="Up" click="{showCallout(upButton, Callout.DIRECTION_UP)}" bottom="20" left="20"/>
+    <spark:Button id="leftButton" label="Left" click="{showCallout(leftButton, Callout.DIRECTION_LEFT)}" bottom="20" right="20"/>
+
+    <fx:Script>
+        <![CDATA[
+        import feathers.controls.Callout;
+        import feathers.spark.Label;
+
+        import screens.ui.BackButtonFactory;
+
+        import starling.display.DisplayObject;
+
+        private static const CONTENT_TEXT:String = "Thank you for trying Feathers.\nHappy coding.";
+
+        private var _message:Label;
+
+        private function showCallout(origin:DisplayObject, direction:String):void
+        {
+            if (!this._message)
+            {
+                this._message = new Label();
+                this._message.text = CONTENT_TEXT;
+            }
+            var callout:Callout = Callout.show(starling.display.DisplayObject(this._message), origin, direction);
+            callout.disposeContent = false;
+        }
+        ]]>
+    </fx:Script>
+</spark:PanelScreen>
