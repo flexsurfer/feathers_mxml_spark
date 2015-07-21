@@ -16,6 +16,71 @@ package feathers.spark
             _sparkLayoutData = new SparkLayoutData(this);
         }
 
+        public function set labelField(value:String):void
+        {
+            itemRendererProperties.labelField = value;
+        }
+
+        public function set iconLabelField(value:String):void
+        {
+            itemRendererProperties.iconLabelField = value;
+        }
+
+        public function set iconSourceField(value:String):void
+        {
+            itemRendererProperties.iconSourceField = value;
+        }
+
+        public function set iconField(value:String):void
+        {
+            itemRendererProperties.iconField = value;
+        }
+
+        public function set accessoryLabelField(value:String):void
+        {
+            itemRendererProperties.accessoryLabelField = value;
+        }
+
+        public function set accessorySourceField(value:String):void
+        {
+            itemRendererProperties.accessorySourceField = value;
+        }
+
+        public function set accessoryField(value:String):void
+        {
+            itemRendererProperties.accessoryField = value;
+        }
+
+        public function set accessoryPosition(value:String):void
+        {
+            itemRendererProperties.accessoryPosition = value;
+        }
+
+        public function set accessoryGap(value:String):void
+        {
+            itemRendererProperties.accessoryGap = value;
+        }
+
+        public function set gap(value:String):void
+        {
+            itemRendererProperties.gap = value;
+        }
+
+        public function set horizontalAlign(value:String):void
+        {
+            itemRendererProperties.horizontalAlign = value;
+        }
+
+        public function set verticalAlign(value:String):void
+        {
+            itemRendererProperties.verticalAlign = value;
+        }
+
+        public function set layoutOrder(value:String):void
+        {
+            itemRendererProperties.layoutOrder = value;
+        }
+
         [PercentProxy("percentWidth")]
         [Bindable(event="change")]
         override public function set width(value:Number):void

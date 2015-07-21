@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<spark:PanelScreen xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:spark="feathers.spark.*"
+                   title="Label" headerFactory="{BackButtonFactory.customHeaderFactory(close)}">
+
+    <spark:VGroup top="0" bottom="0" left="0" right="0" paddingTop="20" paddingLeft="20" gap="10">
+        <spark:Label text="This is a normal label."/>
+        <spark:Label text="A label may be disabled." enabled="false"/>
+        <spark:Label text="A heading label is for larger, more important text." wordWrap="true" style="{feathers.controls.Label.ALTERNATE_STYLE_NAME_HEADING}"/>
+        <spark:Label text="While a detail label is for smaller, less important text." wordWrap="true" style="{feathers.controls.Label.ALTERNATE_STYLE_NAME_DETAIL}"/>
+    </spark:VGroup>
+
+    <fx:Script><![CDATA[
+        import feathers.controls.Label;
+
+        import screens.ui.BackButtonFactory;
+        ]]></fx:Script>
+</spark:PanelScreen>

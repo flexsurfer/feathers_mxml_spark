@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<spark:PanelScreen xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:spark="feathers.spark.*" title="Slider">
+
+    <spark:customHeader>
+        <spark:Header>
+            <spark:leftContent>
+                <spark:Button label="Back" style="{feathers.controls.Button.ALTERNATE_STYLE_NAME_BACK_BUTTON}"
+                              click="close()"/>
+            </spark:leftContent>
+            <spark:rightContent>
+                <spark:Button label="Settings" click="showNextScreen(SHOW_SETTINGS)"/>
+            </spark:rightContent>
+        </spark:Header>
+    </spark:customHeader>
+
+    <spark:HGroup top="0" bottom="0" left="0" right="0" verticalAlign="middle" horizontalAlign="center" gap="20">
+        <spark:Slider direction="horizontal" minimum="0" maximum="100" value="50"
+                      step="{settings.step}" page="{settings.page}" liveDragging="{settings.liveDragging}"/>
+        <spark:Slider direction="vertical" minimum="0" maximum="100" value="50"
+                      step="{settings.step}" page="{settings.page}" liveDragging="{settings.liveDragging}"/>
+    </spark:HGroup>
+
+    <fx:Script><![CDATA[
+        import feathers.controls.Button;
+
+        import screens.data.SliderSettings;
+
+        public static const SHOW_SETTINGS:String = "showSettings";
+
+        [Bindable(event="change")]
+        public function get settings():SliderSettings
+        {
+            return super.data as SliderSettings;
+        }
+
+        public function set settings(value:SliderSettings):void
+        {
+            super.data = value;
+            this.dispatchEventWith(Event.CHANGE);
+        }
+        ]]></fx:Script>
+</spark:PanelScreen>

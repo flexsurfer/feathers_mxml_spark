@@ -3,22 +3,17 @@
  */
 package feathers.spark
 {
-    import feathers.controls.Label;
+    import feathers.controls.ToggleSwitch;
 
-    public class Label extends feathers.controls.Label
+    public class ToggleSwitch extends feathers.controls.ToggleSwitch
     {
         private var _sparkLayoutData:SparkLayoutData;
 
-        public function Label()
+        public function ToggleSwitch()
         {
             super();
 
             _sparkLayoutData = new SparkLayoutData(this);
-        }
-
-        public function set style(value:String):void
-        {
-            styleNameList.add(value);
         }
 
         [Bindable(event="change")]
@@ -31,6 +26,18 @@ package feathers.spark
         public function get enabled():Boolean
         {
             return super.isEnabled;
+        }
+
+        [Bindable(event="change")]
+        public function set selected(value:Boolean):void
+        {
+            super.isSelected = value;
+        }
+
+        [Bindable(event="change")]
+        public function get selected():Boolean
+        {
+            return super.isSelected;
         }
 
         [PercentProxy("percentWidth")]

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<spark:PanelScreen xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:spark="feathers.spark.*" xmlns:data="feathers.data.*"
+                   title="Spinner List" headerFactory="{BackButtonFactory.customHeaderFactory(close)}">
+
+    <spark:SpinnerList labelField="text" typicalItem="{{text: 'Item 1000'}}"
+            left="0" right="0" verticalCenter="0">
+        <data:ListCollection>
+            <fx:Object text="Aardvark"/>
+            <fx:Object text="Alligator"/>
+            <fx:Object text="Alpaca"/>
+            <fx:Object text="Anteater"/>
+            <fx:Object text="Baboon"/>
+            <fx:Object text="Bear"/>
+            <fx:Object text="Beaver"/>
+            <fx:Object text="Canary"/>
+            <fx:Object text="Cat"/>
+            <fx:Object text="Deer"/>
+            <fx:Object text="Dingo"/>
+            <fx:Object text="Dog"/>
+            <fx:Object text="Dolphin"/>
+        </data:ListCollection>
+    </spark:SpinnerList>
+
+  <fx:Script><![CDATA[
+    import screens.ui.BackButtonFactory;
+    ]]></fx:Script>
+</spark:PanelScreen>

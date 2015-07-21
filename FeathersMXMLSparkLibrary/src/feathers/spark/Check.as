@@ -3,22 +3,42 @@
  */
 package feathers.spark
 {
-    import feathers.controls.Label;
+    import feathers.controls.Check;
 
-    public class Label extends feathers.controls.Label
+    [Event(name="click",type="starling.events.Event")]
+
+    public class Check extends feathers.controls.Check
     {
         private var _sparkLayoutData:SparkLayoutData;
 
-        public function Label()
+        public function Check()
         {
             super();
 
             _sparkLayoutData = new SparkLayoutData(this);
         }
 
+        override protected function trigger():void
+        {
+            super.trigger();
+            dispatchEventWith("click");
+        }
+
         public function set style(value:String):void
         {
             styleNameList.add(value);
+        }
+
+        [Bindable(event="change")]
+        public function set selected(value:Boolean):void
+        {
+            super.isSelected = value;
+        }
+
+        [Bindable(event="change")]
+        public function get selected():Boolean
+        {
+            return super.isSelected;
         }
 
         [Bindable(event="change")]

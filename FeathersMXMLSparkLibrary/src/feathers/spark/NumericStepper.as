@@ -3,22 +3,17 @@
  */
 package feathers.spark
 {
-    import feathers.controls.Label;
+    import feathers.controls.NumericStepper;
 
-    public class Label extends feathers.controls.Label
+    public class NumericStepper extends feathers.controls.NumericStepper
     {
         private var _sparkLayoutData:SparkLayoutData;
 
-        public function Label()
+        public function NumericStepper()
         {
             super();
 
             _sparkLayoutData = new SparkLayoutData(this);
-        }
-
-        public function set style(value:String):void
-        {
-            styleNameList.add(value);
         }
 
         [Bindable(event="change")]

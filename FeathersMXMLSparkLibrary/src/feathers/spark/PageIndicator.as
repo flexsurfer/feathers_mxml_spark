@@ -3,22 +3,17 @@
  */
 package feathers.spark
 {
-    import feathers.controls.Label;
+    import feathers.controls.PageIndicator;
 
-    public class Label extends feathers.controls.Label
+    public class PageIndicator extends feathers.controls.PageIndicator
     {
         private var _sparkLayoutData:SparkLayoutData;
 
-        public function Label()
+        public function PageIndicator()
         {
             super();
 
             _sparkLayoutData = new SparkLayoutData(this);
-        }
-
-        public function set style(value:String):void
-        {
-            styleNameList.add(value);
         }
 
         [Bindable(event="change")]

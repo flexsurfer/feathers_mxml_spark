@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <spark:PanelScreen xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:spark="feathers.spark.*"
-                   title="Callout" headerFactory="{BackButtonFactory.customHeaderFactory(cancel)}">
+                   title="Callout" headerFactory="{BackButtonFactory.customHeaderFactory(close)}">
 
     <spark:Button id="rightButton" label="Right" click="{showCallout(rightButton, Callout.DIRECTION_RIGHT)}" top="20" left="20"/>
     <spark:Button id="downButton" label="Down" click="{showCallout(downButton, Callout.DIRECTION_DOWN)}" top="20" right="20"/>

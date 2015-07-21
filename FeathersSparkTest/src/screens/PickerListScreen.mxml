@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<spark:PanelScreen xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:spark="feathers.spark.*"
+                   title="Picker List" headerFactory="{BackButtonFactory.customHeaderFactory(close)}">
+
+    <spark:PickerList id="list" prompt="Select an Item" labelField="text" typicalItem='{{ text: "Select an Item" }}'
+                      horizontalCenter="0" verticalCenter="0"/>
+
+    <fx:Script>
+        <![CDATA[
+        import feathers.controls.renderers.DefaultListItemRenderer;
+        import feathers.controls.renderers.IListItemRenderer;
+        import feathers.data.ListCollection;
+        import feathers.spark.List;
+
+        import screens.ui.BackButtonFactory;
+
+        override protected function initialize():void
+        {
+            //never forget to call super.initialize()
+            super.initialize();
+
+            var items:Array = [];
+            for (var i:int = 0; i < 150; i++)
+            {
+                var item:Object = {text: "Item " + (i + 1).toString()};
+                items[i] = item;
+            }
+            items.fixed = true;
+
+            this.list.dataProvider = new ListCollection(items);
+            this.list.selectedIndex = -1;
+
+            this.list.listFactory = function ():List
+            {
+                var list:List = new List();
+                //notice that we're setting typicalItem on the list separately. we
+                //may want to have the list measure at a different width, so it
+                //might need a different typical item than the picker list's button.
+                list.typicalItem = {text: "Item 1000"};
+                list.itemRendererFactory = function ():IListItemRenderer
+                {
+                    var renderer:DefaultListItemRenderer = new DefaultListItemRenderer();
+                    //notice that we're setting labelField on the item renderers
+                    //separately. the default item renderer has a labelField property,
+                    //but a custom item renderer may not even have a label, so
+                    //PickerList cannot simply pass its labelField down to item
+                    //renderers automatically
+                    renderer.labelField = "text";
+                    return renderer;
+                };
+                return list;
+            };
+        }
+        ]]>
+    </fx:Script>
+</spark:PanelScreen>

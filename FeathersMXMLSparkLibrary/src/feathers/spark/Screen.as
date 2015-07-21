@@ -23,7 +23,7 @@ package feathers.spark
 
         protected function cancel():void
         {
-            dispatchEventWith(ScreenEvent.CANCEL);
+            dispatchEventWith(ScreenEvent.CLOSE);
         }
 
         public function newInstance():*

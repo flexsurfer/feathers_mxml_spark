@@ -1,13 +1,69 @@
 <?xml version="1.0"?>
-<spark:PanelScreen xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:spark="feathers.spark.*"
-        title="Grouped List Settings">
+<spark:PanelScreen xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:spark="feathers.spark.*" xmlns:data="feathers.data.*"
+                   title="Grouped List Settings">
 
-  <spark:customHeader>
-    <spark:Header>
-      <spark:rightContent>
-        <spark:Button label="Done" click="cancel()"/>
-      </spark:rightContent>
-    </spark:Header>
-  </spark:customHeader>
+    <spark:customHeader>
+        <spark:Header>
+            <spark:rightContent>
+                <spark:Button label="Done" click="close()"/>
+            </spark:rightContent>
+        </spark:Header>
+    </spark:customHeader>
 
+    <spark:List top="0" left="0" right="0" bottom="0"
+                clipContent="false" autoHideBackground="true">
+        <data:ListCollection>
+            <fx:Object label="Group Style" accessory="{this.stylePicker}"/>
+            <fx:Object label="isSelectable" accessory="{this.isSelectableToggle}"/>
+            <fx:Object label="hasElasticEdges" accessory="{this.hasElasticEdgesToggle}"/>
+        </data:ListCollection>
+    </spark:List>
+
+    <fx:Declarations>
+        <spark:PickerList id="stylePicker" typicalItem="{GroupedListSettings.STYLE_NORMAL}"
+                          change="pickerList_changeHandler()">
+            <data:ListCollection>
+                <fx:String>{GroupedListSettings.STYLE_NORMAL}</fx:String>
+                <fx:String>{GroupedListSettings.STYLE_INSET}</fx:String>
+            </data:ListCollection>
+        </spark:PickerList>
+
+        <spark:ToggleSwitch id="isSelectableToggle" isSelected ="{this.settings.isSelectable}"
+                            change="isSelectableToggle_changeHandler()"/>
+
+        <spark:ToggleSwitch id="hasElasticEdgesToggle" isSelected ="{this.settings.hasElasticEdges}"
+                            change="hasElasticEdgesToggle_changeHandler()"/>
+    </fx:Declarations>
+
+    <fx:Script>
+    <![CDATA[
+        import screens.data.GroupedListSettings;
+
+        [Bindable]
+        public var settings:GroupedListSettings;
+
+        override protected function initialize():void
+        {
+            super.initialize();
+
+            stylePicker.listProperties.typicalItem = GroupedListSettings.STYLE_NORMAL;
+            stylePicker.selectedItem = this.settings.style;
+        }
+
+        private function pickerList_changeHandler():void
+        {
+            this.settings.style = this.stylePicker.selectedItem as String;
+        }
+
+        private function isSelectableToggle_changeHandler():void
+        {
+            this.settings.isSelectable = this.isSelectableToggle.selected;
+        }
+
+        private function hasElasticEdgesToggle_changeHandler():void
+        {
+            this.settings.hasElasticEdges = this.hasElasticEdgesToggle.selected;
+        }
+        ]]>
+  </fx:Script>
 </spark:PanelScreen>

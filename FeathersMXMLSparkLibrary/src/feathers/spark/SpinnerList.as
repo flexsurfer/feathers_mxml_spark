@@ -3,34 +3,82 @@
  */
 package feathers.spark
 {
-    import feathers.controls.Label;
+    import feathers.controls.SpinnerList;
 
-    public class Label extends feathers.controls.Label
+    public class SpinnerList extends feathers.controls.SpinnerList
     {
         private var _sparkLayoutData:SparkLayoutData;
 
-        public function Label()
+        public function SpinnerList()
         {
             super();
 
             _sparkLayoutData = new SparkLayoutData(this);
         }
 
-        public function set style(value:String):void
+        public function set labelField(value:String):void
         {
-            styleNameList.add(value);
+            itemRendererProperties.labelField = value;
         }
 
-        [Bindable(event="change")]
-        public function set enabled(value:Boolean):void
+        public function set iconLabelField(value:String):void
         {
-            super.isEnabled = value;
+            itemRendererProperties.iconLabelField = value;
         }
 
-        [Bindable(event="change")]
-        public function get enabled():Boolean
+        public function set iconSourceField(value:String):void
         {
-            return super.isEnabled;
+            itemRendererProperties.iconSourceField = value;
+        }
+
+        public function set iconField(value:String):void
+        {
+            itemRendererProperties.iconField = value;
+        }
+
+        public function set accessoryLabelField(value:String):void
+        {
+            itemRendererProperties.accessoryLabelField = value;
+        }
+
+        public function set accessorySourceField(value:String):void
+        {
+            itemRendererProperties.accessorySourceField = value;
+        }
+
+        public function set accessoryField(value:String):void
+        {
+            itemRendererProperties.accessoryField = value;
+        }
+
+        public function set accessoryPosition(value:String):void
+        {
+            itemRendererProperties.accessoryPosition = value;
+        }
+
+        public function set accessoryGap(value:String):void
+        {
+            itemRendererProperties.accessoryGap = value;
+        }
+
+        public function set gap(value:String):void
+        {
+            itemRendererProperties.gap = value;
+        }
+
+        public function set horizontalAlign(value:String):void
+        {
+            itemRendererProperties.horizontalAlign = value;
+        }
+
+        public function set verticalAlign(value:String):void
+        {
+            itemRendererProperties.verticalAlign = value;
+        }
+
+        public function set layoutOrder(value:String):void
+        {
+            itemRendererProperties.layoutOrder = value;
         }
 
         [PercentProxy("percentWidth")]

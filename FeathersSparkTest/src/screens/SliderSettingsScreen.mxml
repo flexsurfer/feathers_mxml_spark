@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<spark:PanelScreen xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:spark="feathers.spark.*"
+                   xmlns:data="library://ns.feathersui.com/mxml"
+                   title="Slider Settings">
+
+    <spark:customHeader>
+        <spark:Header>
+            <spark:rightContent>
+                <spark:Button label="Done" click="close()"/>
+            </spark:rightContent>
+        </spark:Header>
+    </spark:customHeader>
+
+    <spark:List top="0" left="0" right="0" bottom="0"
+                clipContent="false" autoHideBackground="true">
+        <data:ListCollection>
+            <fx:Array>
+                <fx:Object label="liveDragging" accessory="{liveDraggingToggle}"/>
+                <fx:Object label="step" accessory="{stepStepper}"/>
+                <fx:Object label="page" accessory="{pageStepper}"/>
+            </fx:Array>
+        </data:ListCollection>
+    </spark:List>
+
+    <fx:Declarations>
+        <spark:ToggleSwitch id="liveDraggingToggle" isSelected="{settings.liveDragging}"
+                            change="liveDraggingToggle_changeHandler()"/>
+
+        <spark:NumericStepper id="stepStepper" minimum="1" maximum="20" step="1" value="{settings.step}"
+                              change="stepStepper_changeHandler()"/>
+
+        <spark:NumericStepper id="pageStepper" minimum="1" maximum="20" step="1" value="{settings.page}"
+                              change="pageStepper_changeHandler()"/>
+    </fx:Declarations>
+
+    <fx:Script>
+        <![CDATA[
+        import screens.data.SliderSettings;
+
+        private function liveDraggingToggle_changeHandler():void
+        {
+            this.settings.liveDragging = this.liveDraggingToggle.isSelected;
+        }
+
+        private function stepStepper_changeHandler():void
+        {
+            this.settings.step = this.stepStepper.value;
+        }
+
+        private function pageStepper_changeHandler():void
+        {
+            this.settings.page = this.pageStepper.value;
+        }
+
+        [Bindable(event="change")]
+        public function get settings():SliderSettings
+        {
+            return super.data as SliderSettings;
+        }
+
+        public function set settings(value:SliderSettings):void
+        {
+            super.data = value;
+            this.dispatchEventWith(Event.CHANGE);
+        }
+        ]]>
+    </fx:Script>
+</spark:PanelScreen>

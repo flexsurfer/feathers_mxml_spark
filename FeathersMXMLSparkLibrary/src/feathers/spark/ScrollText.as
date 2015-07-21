@@ -3,22 +3,17 @@
  */
 package feathers.spark
 {
-    import feathers.controls.Label;
+    import feathers.controls.ScrollText;
 
-    public class Label extends feathers.controls.Label
+    public class ScrollText extends feathers.controls.ScrollText
     {
         private var _sparkLayoutData:SparkLayoutData;
 
-        public function Label()
+        public function ScrollText()
         {
             super();
 
             _sparkLayoutData = new SparkLayoutData(this);
-        }
-
-        public function set style(value:String):void
-        {
-            styleNameList.add(value);
         }
 
         [Bindable(event="change")]

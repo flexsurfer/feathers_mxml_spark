@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<spark:PanelScreen xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:spark="feathers.spark.*"
+                   title="Text Input" headerFactory="{BackButtonFactory.customHeaderFactory(close)}">
+
+    <spark:VGroup top="0" left="0" right="0" bottom="0" horizontalAlign="center" paddingTop="20" gap="10">
+        <spark:TextInput prompt="Normal Text Input"/>
+        <spark:TextInput prompt="Disabled Input" enabled="false"/>
+        <spark:TextInput prompt="Search Input" style="{feathers.controls.TextInput.ALTERNATE_STYLE_NAME_SEARCH_TEXT_INPUT}"/>
+        <spark:TextInput prompt="Password Input" displayAsPassword="true"/>
+        <spark:TextInput prompt="Not Editable" editable="false"/>
+    </spark:VGroup>
+
+  <fx:Script><![CDATA[
+      import feathers.controls.TextInput;
+      import screens.ui.BackButtonFactory;
+    ]]></fx:Script>
+</spark:PanelScreen>

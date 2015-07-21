@@ -3,34 +3,17 @@
  */
 package feathers.spark
 {
-    import feathers.controls.Label;
+    import feathers.core.FeathersControl;
 
-    public class Label extends feathers.controls.Label
+    public class SparkControl extends FeathersControl
     {
         private var _sparkLayoutData:SparkLayoutData;
 
-        public function Label()
+        public function SparkControl()
         {
             super();
 
             _sparkLayoutData = new SparkLayoutData(this);
-        }
-
-        public function set style(value:String):void
-        {
-            styleNameList.add(value);
-        }
-
-        [Bindable(event="change")]
-        public function set enabled(value:Boolean):void
-        {
-            super.isEnabled = value;
-        }
-
-        [Bindable(event="change")]
-        public function get enabled():Boolean
-        {
-            return super.isEnabled;
         }
 
         [PercentProxy("percentWidth")]

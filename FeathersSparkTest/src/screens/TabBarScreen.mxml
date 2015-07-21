@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<spark:PanelScreen xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:spark="feathers.spark.*" xmlns:data="feathers.data.*"
+                   title="Tab Bar" headerFactory="{BackButtonFactory.customHeaderFactory(close)}">
+
+    <spark:Label text="{'selectedIndex: ' + tabBar.selectedIndex}" horizontalCenter="0" verticalCenter="0"/>
+
+    <spark:TabBar id="tabBar" bottom="0" left="0" right="0">
+        <data:ListCollection>
+            <fx:Object label="One"/>
+            <fx:Object label="Two"/>
+            <fx:Object label="Three"/>
+            <fx:Object label="Disabled" isEnabled="false"/>
+        </data:ListCollection>
+    </spark:TabBar>
+
+  <fx:Script><![CDATA[
+    import screens.ui.BackButtonFactory;
+    ]]></fx:Script>
+</spark:PanelScreen>

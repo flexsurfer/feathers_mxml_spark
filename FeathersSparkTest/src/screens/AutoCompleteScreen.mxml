@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <spark:PanelScreen xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:spark="feathers.spark.*" xmlns:data="feathers.data.*"
-                   title="Auto-complete" headerFactory="{BackButtonFactory.customHeaderFactory(cancel)}">
+                   title="Auto-complete" headerFactory="{BackButtonFactory.customHeaderFactory(close)}">
 
   <spark:AutoComplete horizontalCenter="0" top="20"
                       prompt="Fruits. Type 'ap' to see suggestions" >

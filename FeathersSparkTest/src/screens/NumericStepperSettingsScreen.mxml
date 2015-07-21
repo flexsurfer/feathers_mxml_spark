@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<spark:PanelScreen xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:spark="feathers.spark.*"
+                   xmlns:data="library://ns.feathersui.com/mxml" title="Numeric Stepper Settings">
+
+    <spark:customHeader>
+        <spark:Header>
+            <spark:rightContent>
+                <spark:Button label="Done" click="close()"/>
+            </spark:rightContent>
+        </spark:Header>
+    </spark:customHeader>
+
+    <spark:List top="0" left="0" right="0" bottom="0"
+                clipContent="false" autoHideBackground="true">
+        <data:ListCollection>
+            <fx:Array>
+                <fx:Object label="step" accessory="{stepStepper}"/>
+            </fx:Array>
+        </data:ListCollection>
+    </spark:List>
+
+    <fx:Declarations>
+        <spark:NumericStepper id="stepStepper" minimum="1" maximum="20" step="1" value="{settings.step}"
+                change="stepStepper_changeHandler()"/>
+    </fx:Declarations>
+
+    <fx:Script>
+        <![CDATA[
+        import screens.data.NumericStepperSettings;
+
+        private function stepStepper_changeHandler():void
+        {
+            this.settings.step = this.stepStepper.value;
+        }
+
+        [Bindable(event="change")]
+        public function get settings():NumericStepperSettings
+        {
+            return super.data as NumericStepperSettings;
+        }
+
+        public function set settings(value:NumericStepperSettings):void
+        {
+            super.data = value;
+            this.dispatchEventWith(Event.CHANGE);
+        }
+        ]]>
+    </fx:Script>
+</spark:PanelScreen>

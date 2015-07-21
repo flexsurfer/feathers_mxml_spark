@@ -3,13 +3,13 @@
  */
 package feathers.spark
 {
-    import feathers.controls.Label;
+    import feathers.controls.TextInput;
 
-    public class Label extends feathers.controls.Label
+    public class TextInput extends feathers.controls.TextInput
     {
         private var _sparkLayoutData:SparkLayoutData;
 
-        public function Label()
+        public function TextInput()
         {
             super();
 
@@ -31,6 +31,18 @@ package feathers.spark
         public function get enabled():Boolean
         {
             return super.isEnabled;
+        }
+
+        [Bindable(event="change")]
+        public function set editable(value:Boolean):void
+        {
+            super.isEditable = value;
+        }
+
+        [Bindable(event="change")]
+        public function get editable():Boolean
+        {
+            return super.isEditable;
         }
 
         [PercentProxy("percentWidth")]

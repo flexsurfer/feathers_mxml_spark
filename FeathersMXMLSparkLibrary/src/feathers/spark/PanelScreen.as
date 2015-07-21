@@ -8,6 +8,8 @@ package feathers.spark
 
     import mx.core.IFactory;
 
+    import starling.events.Event;
+
     public class PanelScreen extends feathers.controls.PanelScreen implements IFactory
     {
         private var _customHeader:Header;
@@ -29,26 +31,40 @@ package feathers.spark
             return _customHeader;
         }
 
-        protected function showNextScreen(event:String = ""):void
+        protected function showNextScreen(event:String = "", data:Object = null):void
         {
             if (event != "")
             {
-                dispatchEventWith(event);
+                dispatchEventWith(event, false, data);
             }
             else
             {
-                dispatchEventWith(ScreenEvent.NEXT_SCREEN);
+                dispatchEventWith(ScreenEvent.NEXT_SCREEN, false, data);
             }
         }
 
-        protected function cancel():void
+        protected function close():void
         {
-            dispatchEventWith(ScreenEvent.CANCEL);
+            dispatchEventWith(ScreenEvent.CLOSE);
         }
 
         public function newInstance():*
         {
             return null;
+        }
+
+        private var _data:Object;
+
+        [Bindable(event="change")]
+        public function get data():Object
+        {
+            return _data;
+        }
+
+        public function set data(value:Object):void
+        {
+            _data = value;
+            this.dispatchEventWith(Event.CHANGE);
         }
     }
 }

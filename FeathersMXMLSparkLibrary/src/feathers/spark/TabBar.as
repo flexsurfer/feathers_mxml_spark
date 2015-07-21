@@ -3,22 +3,17 @@
  */
 package feathers.spark
 {
-    import feathers.controls.Label;
+    import feathers.controls.TabBar;
 
-    public class Label extends feathers.controls.Label
+    public class TabBar extends feathers.controls.TabBar
     {
         private var _sparkLayoutData:SparkLayoutData;
 
-        public function Label()
+        public function TabBar()
         {
             super();
 
             _sparkLayoutData = new SparkLayoutData(this);
-        }
-
-        public function set style(value:String):void
-        {
-            styleNameList.add(value);
         }
 
         [Bindable(event="change")]

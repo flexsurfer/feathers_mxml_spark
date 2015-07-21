@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<spark:PanelScreen xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:spark="feathers.spark.*"
+                   xmlns:data="library://ns.feathersui.com/mxml" title="List Settings">
+
+    <spark:customHeader>
+        <spark:Header>
+            <spark:rightContent>
+                <spark:Button label="Done" click="close()"/>
+            </spark:rightContent>
+        </spark:Header>
+    </spark:customHeader>
+
+    <spark:List top="0" left="0" right="0" bottom="0"
+                clipContent="false" autoHideBackground="true">
+        <data:ListCollection>
+            <fx:Object label="allowMultipleSelection" accessory="{allowMultipleSelection}"/>
+            <fx:Object label="isSelectable" accessory="{isSelectableToggle}"/>
+            <fx:Object label="hasElasticEdges" accessory="{hasElasticEdgesToggle}"/>
+        </data:ListCollection>
+    </spark:List>
+
+    <fx:Declarations>
+        <spark:ToggleSwitch id="allowMultipleSelection" isSelected="{settings.allowMultipleSelection}"
+                            change="allowMultipleSelectionToggle_changeHandler()"/>
+
+        <spark:ToggleSwitch id="isSelectableToggle" selected="{settings.isSelectable}"
+                            change="isSelectableToggle_changeHandler()"/>
+
+        <spark:ToggleSwitch id="hasElasticEdgesToggle" selected="{settings.hasElasticEdges}"
+                            change="hasElasticEdgesToggle_changeHandler()"/>
+    </fx:Declarations>
+
+    <fx:Script>
+        <![CDATA[
+        import screens.data.ListSettings;
+
+        private function allowMultipleSelectionToggle_changeHandler():void
+        {
+            settings.allowMultipleSelection = this.allowMultipleSelection.selected;
+        }
+
+        private function isSelectableToggle_changeHandler():void
+        {
+            settings.isSelectable = this.isSelectableToggle.selected;
+        }
+
+        private function hasElasticEdgesToggle_changeHandler():void
+        {
+            settings.hasElasticEdges = this.hasElasticEdgesToggle.selected;
+        }
+
+        [Bindable(event="change")]
+        public function get settings():ListSettings
+        {
+            return super.data as ListSettings;
+        }
+
+        public function set settings(value:ListSettings):void
+        {
+            super.data = value;
+            this.dispatchEventWith(Event.CHANGE);
+        }
+        ]]>
+    </fx:Script>
+
+</spark:PanelScreen>

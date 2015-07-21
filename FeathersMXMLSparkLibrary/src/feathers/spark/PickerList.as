@@ -3,34 +3,17 @@
  */
 package feathers.spark
 {
-    import feathers.controls.Label;
+    import feathers.controls.PickerList;
 
-    public class Label extends feathers.controls.Label
+    public class PickerList extends feathers.controls.PickerList
     {
         private var _sparkLayoutData:SparkLayoutData;
 
-        public function Label()
+        public function PickerList()
         {
             super();
 
             _sparkLayoutData = new SparkLayoutData(this);
-        }
-
-        public function set style(value:String):void
-        {
-            styleNameList.add(value);
-        }
-
-        [Bindable(event="change")]
-        public function set enabled(value:Boolean):void
-        {
-            super.isEnabled = value;
-        }
-
-        [Bindable(event="change")]
-        public function get enabled():Boolean
-        {
-            return super.isEnabled;
         }
 
         [PercentProxy("percentWidth")]

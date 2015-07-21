@@ -8,7 +8,7 @@ package feathers.spark
     public class ScreenEvent extends Event
     {
         public static const NEXT_SCREEN:String = "sparkScreenNextScreenEvent";
-        public static const CANCEL:String = "sparkScreenCancelEvent";
+        public static const CLOSE:String = "sparkScreenCloseEvent";
 
         public function ScreenEvent(type:String, bubbles:Boolean = false, data:Object = null)
         {

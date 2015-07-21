@@ -1,11 +1,14 @@
 <?xml version="1.0"?>
 <f:StackScreenNavigatorApplication xmlns:fx="http://ns.adobe.com/mxml/2009"
                                    xmlns:f="library://ns.feathersui.com/mxml" xmlns:spark="feathers.spark.*"
+                                   xmlns:data="screens.data.*"
                                    theme="feathers.themes.MetalWorksMobileTheme" rootScreenID="mainMenuScreen"
                                    pushTransition="{Slide.createSlideLeftTransition()}"
                                    popTransition="{Slide.createSlideRightTransition()}">
 
-    <spark:StackScreenNavigatorItem id="mainMenuScreen" screenRenderer="screens.MainMenuScreen">
+
+    <!-- MAIN MENU-->
+    <spark:StackScreenNavigatorItem id="mainMenuScreen" itemRenderer="screens.MainMenuScreen">
         <spark:pushEvents>
             <spark:PushEventsObject>
                 <spark:PushEventObject event="{MainMenuEvents.SHOW_ALERT}" screenID="alertScreen"/>
@@ -14,17 +17,41 @@
                 <spark:PushEventObject event="{MainMenuEvents.SHOW_BUTTON_GROUP}" screenID="buttonGroupScreen"/>
                 <spark:PushEventObject event="{MainMenuEvents.SHOW_CALLOUT}" screenID="calloutScreen"/>
                 <spark:PushEventObject event="{MainMenuEvents.SHOW_GROUPED_LIST}" screenID="groupedListScreen"/>
+                <spark:PushEventObject event="{MainMenuEvents.SHOW_ITEM_RENDERER}" screenID="itemRendererScreen"/>
+                <spark:PushEventObject event="{MainMenuEvents.SHOW_LABEL}" screenID="labelScreen"/>
+                <spark:PushEventObject event="{MainMenuEvents.SHOW_LIST}" screenID="listScreen"/>
+                <spark:PushEventObject event="{MainMenuEvents.SHOW_NUMERIC_STEPPER}" screenID="numericStepperScreen"/>
+                <spark:PushEventObject event="{MainMenuEvents.SHOW_PAGE_INDICATOR}" screenID="pageIndicatorScreen"/>
+                <spark:PushEventObject event="{MainMenuEvents.SHOW_PICKER_LIST}" screenID="pickerListScreen"/>
+                <spark:PushEventObject event="{MainMenuEvents.SHOW_PROGRESS_BAR}" screenID="progressBarScreen"/>
+                <spark:PushEventObject event="{MainMenuEvents.SHOW_SCROLL_TEXT}" screenID="scrollTextScreen"/>
+                <spark:PushEventObject event="{MainMenuEvents.SHOW_SLIDER}" screenID="sliderScreen"/>
+                <spark:PushEventObject event="{MainMenuEvents.SHOW_SPINNER_LIST}" screenID="spinnerListScreen"/>
+                <spark:PushEventObject event="{MainMenuEvents.SHOW_TAB_BAR}" screenID="tabBarScreen"/>
+                <spark:PushEventObject event="{MainMenuEvents.SHOW_TEXT_INPUT}" screenID="textInputScreen"/>
+                <spark:PushEventObject event="{MainMenuEvents.SHOW_TOGGLES}" screenID="togglesScreen"/>
             </spark:PushEventsObject>
         </spark:pushEvents>
     </spark:StackScreenNavigatorItem>
 
-    <spark:StackScreenNavigatorItem id="alertScreen" screenRenderer="screens.AlertScreen"/>
-    <spark:StackScreenNavigatorItem id="autoCompleteScreen" screenRenderer="screens.AutoCompleteScreen"/>
-    <spark:StackScreenNavigatorItem id="buttonScreen" screenRenderer="screens.ButtonScreen"/>
-    <spark:StackScreenNavigatorItem id="buttonGroupScreen" screenRenderer="screens.ButtonGroupScreen"/>
-    <spark:StackScreenNavigatorItem id="calloutScreen" screenRenderer="screens.CalloutScreen"/>
+    <!-- ALERT-->
+    <spark:StackScreenNavigatorItem id="alertScreen" itemRenderer="screens.AlertScreen"/>
+    <!-- AUTO COMPLETE-->
+    <spark:StackScreenNavigatorItem id="autoCompleteScreen" itemRenderer="screens.AutoCompleteScreen"/>
+    <!-- BUTTON-->
+    <spark:StackScreenNavigatorItem id="buttonScreen" itemRenderer="screens.ButtonScreen"/>
+    <!-- BUTTON GROUP-->
+    <spark:StackScreenNavigatorItem id="buttonGroupScreen" itemRenderer="screens.ButtonGroupScreen"/>
+    <!-- CALLOUT-->
+    <spark:StackScreenNavigatorItem id="calloutScreen" itemRenderer="screens.CalloutScreen"/>
 
-    <spark:StackScreenNavigatorItem id="groupedListScreen" screenRenderer="screens.GroupedListScreen">
+    <!-- GROUPED LIST-->
+    <fx:Declarations>
+        <data:GroupedListProps id="groupedListProps"/>
+    </fx:Declarations>
+
+    <spark:StackScreenNavigatorItem id="groupedListScreen" itemRenderer="screens.GroupedListScreen"
+                                    properties="{groupedListProps}">
         <spark:pushEvents>
             <spark:PushEventsObject>
                 <spark:PushEventObject event="{GroupedListScreen.SHOW_SETTINGS}" screenID="groupedListSettingsScreen"/>
@@ -32,9 +59,87 @@
         </spark:pushEvents>
     </spark:StackScreenNavigatorItem>
 
-    <spark:StackScreenNavigatorItem id="groupedListSettingsScreen" screenRenderer="screens.GroupedListSettingsScreen"
+    <spark:StackScreenNavigatorItem id="groupedListSettingsScreen" itemRenderer="screens.GroupedListSettingsScreen"
+                                    properties="{groupedListProps}"
                                     pushTransition="{Cover.createCoverUpTransition()}"
                                     popTransition="{Reveal.createRevealDownTransition()}"/>
+
+    <!-- ITEM RENDERER-->
+    <spark:StackScreenNavigatorItem id="itemRendererScreen" itemRenderer="screens.ItemRendererScreen"/>
+    <!-- LABEL-->
+    <spark:StackScreenNavigatorItem id="labelScreen" itemRenderer="screens.LabelScreen"/>
+
+    <!-- LIST-->
+    <fx:Declarations>
+        <data:ListSettings id="listSettings"/>
+    </fx:Declarations>
+
+    <spark:StackScreenNavigatorItem id="listScreen" itemRenderer="screens.ListScreen" data="{listSettings}">
+        <spark:pushEvents>
+            <spark:PushEventsObject>
+                <spark:PushEventObject event="{ListScreen.SHOW_SETTINGS}" screenID="listSettingsScreen"/>
+            </spark:PushEventsObject>
+        </spark:pushEvents>
+    </spark:StackScreenNavigatorItem>
+
+    <spark:StackScreenNavigatorItem id="listSettingsScreen" itemRenderer="screens.ListSettingsScreen"
+                                    data="{listSettings}"
+                                    pushTransition="{Cover.createCoverUpTransition()}"
+                                    popTransition="{Reveal.createRevealDownTransition()}"/>
+
+    <!-- NUMERIC STEPPER-->
+    <fx:Declarations>
+        <data:NumericStepperSettings id="numericStepperSettings"/>
+    </fx:Declarations>
+
+    <spark:StackScreenNavigatorItem id="numericStepperScreen" itemRenderer="screens.NumericStepperScreen" data="{numericStepperSettings}">
+        <spark:pushEvents>
+            <spark:PushEventsObject>
+                <spark:PushEventObject event="{ListScreen.SHOW_SETTINGS}" screenID="numericStepperSettingsScreen"/>
+            </spark:PushEventsObject>
+        </spark:pushEvents>
+    </spark:StackScreenNavigatorItem>
+
+    <spark:StackScreenNavigatorItem id="numericStepperSettingsScreen" itemRenderer="screens.NumericStepperSettingsScreen"
+                                    data="{numericStepperSettings}"
+                                    pushTransition="{Cover.createCoverUpTransition()}"
+                                    popTransition="{Reveal.createRevealDownTransition()}"/>
+
+    <!-- PAGE INDICATOR-->
+    <spark:StackScreenNavigatorItem id="pageIndicatorScreen" itemRenderer="screens.PageIndicatorScreen"/>
+    <!-- PICKER LIST-->
+    <spark:StackScreenNavigatorItem id="pickerListScreen" itemRenderer="screens.PickerListScreen"/>
+    <!-- PROGRESS BAR-->
+    <spark:StackScreenNavigatorItem id="progressBarScreen" itemRenderer="screens.ProgressBarScreen"/>
+    <!-- SCROLL TEXT-->
+    <spark:StackScreenNavigatorItem id="scrollTextScreen" itemRenderer="screens.ScrollTextScreen"/>
+
+    <!-- SLIDER-->
+    <fx:Declarations>
+        <data:SliderSettings id="sliderSettings"/>
+    </fx:Declarations>
+
+    <spark:StackScreenNavigatorItem id="sliderScreen" itemRenderer="screens.SliderScreen" data="{sliderSettings}">
+        <spark:pushEvents>
+            <spark:PushEventsObject>
+                <spark:PushEventObject event="{ListScreen.SHOW_SETTINGS}" screenID="sliderSettingsScreen"/>
+            </spark:PushEventsObject>
+        </spark:pushEvents>
+    </spark:StackScreenNavigatorItem>
+
+    <spark:StackScreenNavigatorItem id="sliderSettingsScreen" itemRenderer="screens.SliderSettingsScreen"
+                                    data="{sliderSettings}"
+                                    pushTransition="{Cover.createCoverUpTransition()}"
+                                    popTransition="{Reveal.createRevealDownTransition()}"/>
+
+    <!-- SPINNER LIST-->
+    <spark:StackScreenNavigatorItem id="spinnerListScreen" itemRenderer="screens.SpinnerListScreen"/>
+    <!-- TAB BAR-->
+    <spark:StackScreenNavigatorItem id="tabBarScreen" itemRenderer="screens.TabBarScreen"/>
+    <!-- TEXT INPUT-->
+    <spark:StackScreenNavigatorItem id="textInputScreen" itemRenderer="screens.TextInputScreen"/>
+    <!-- TOGGLES-->
+    <spark:StackScreenNavigatorItem id="togglesScreen" itemRenderer="screens.ToggleScreen"/>
 
     <fx:Script>
         <![CDATA[
@@ -43,6 +148,7 @@
         import feathers.motion.Slide;
 
         import screens.GroupedListScreen;
+        import screens.ListScreen;
         import screens.events.MainMenuEvents;
         ]]>
     </fx:Script>

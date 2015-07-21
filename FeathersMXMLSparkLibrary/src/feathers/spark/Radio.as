@@ -3,22 +3,51 @@
  */
 package feathers.spark
 {
-    import feathers.controls.Label;
+    import feathers.controls.Radio;
+    import feathers.core.ToggleGroup;
 
-    public class Label extends feathers.controls.Label
+    public class Radio extends feathers.controls.Radio
     {
         private var _sparkLayoutData:SparkLayoutData;
 
-        public function Label()
+        public function Radio()
         {
             super();
 
             _sparkLayoutData = new SparkLayoutData(this);
         }
 
+        public function get group():ToggleGroup
+        {
+            return super.toggleGroup;
+        }
+
+        public function set group(value:ToggleGroup):void
+        {
+            super.toggleGroup = value;
+        }
+
+        override protected function trigger():void
+        {
+            super.trigger();
+            dispatchEventWith("click");
+        }
+
         public function set style(value:String):void
         {
             styleNameList.add(value);
+        }
+
+        [Bindable(event="change")]
+        public function set selected(value:Boolean):void
+        {
+            super.isSelected = value;
+        }
+
+        [Bindable(event="change")]
+        public function get selected():Boolean
+        {
+            return super.isSelected;
         }
 
         [Bindable(event="change")]

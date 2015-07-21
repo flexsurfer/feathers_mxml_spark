@@ -17,10 +17,10 @@ package feathers.spark
                                                  popEvent:String = null, properties:Object = null)
         {
             super(screen, pushEvents, popEvent, properties);
-            addPopEvent(ScreenEvent.CANCEL);
+            addPopEvent(ScreenEvent.CLOSE);
         }
 
-        public function set screenRenderer(factory:IFactory):void
+        public function set itemRenderer(factory:IFactory):void
         {
             this.screen = ClassFactory(factory).generator as Class;
         }
@@ -28,6 +28,16 @@ package feathers.spark
         public function set nextScreen(screenId:String):void
         {
             setScreenIDForPushEvent(ScreenEvent.NEXT_SCREEN, screenId);
+        }
+
+        public function set data(data:Object):void
+        {
+            properties = {"data" : data};
+        }
+
+        public function get data():Object
+        {
+            return properties["data"];
         }
     }
 }

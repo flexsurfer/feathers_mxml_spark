@@ -2,7 +2,8 @@
 <spark:PanelScreen xmlns:f="library://ns.feathersui.com/mxml" xmlns:fx="http://ns.adobe.com/mxml/2009"
                    xmlns:spark="feathers.spark.*" title="Feathers Spark">
 
-    <spark:List id="list" top="0" bottom="0" left="0" right="0" change="list_changeHandler(event)">
+    <spark:List id="list" top="0" bottom="0" left="0" right="0" change="list_changeHandler(event)"
+                verticalScrollPosition="{savedVerticalScrollPosition}">
         <f:ListCollection>
             <fx:Object label="Alert" event="{MainMenuEvents.SHOW_ALERT}"/>
             <fx:Object label="Auto-complete" event="{MainMenuEvents.SHOW_AUTO_COMPLETE}"/>
@@ -31,9 +32,15 @@
 
         import starling.events.Event;
 
+        [Bindable]
+        public var savedVerticalScrollPosition:Number = 0;
+
         private function list_changeHandler(event:Event):void
         {
-            showNextScreen(this.list.selectedItem.event as String);
+            showNextScreen(this.list.selectedItem.event as String,
+                    {
+                        savedVerticalScrollPosition: this.list.verticalScrollPosition
+                    });
         }
         ]]>
     </fx:Script>
