@@ -56,22 +56,22 @@ package feathers.spark
             itemRendererProperties.accessoryPosition = value;
         }
 
-        public function set accessoryGap(value:String):void
+        public function set accessoryGap(value:Number):void
         {
             itemRendererProperties.accessoryGap = value;
         }
 
-        public function set gap(value:String):void
+        public function set gap(value:Number):void
         {
             itemRendererProperties.gap = value;
         }
 
-        public function set horizontalAlign(value:String):void
+        public function set horizontalAlign(value:Number):void
         {
             itemRendererProperties.horizontalAlign = value;
         }
 
-        public function set verticalAlign(value:String):void
+        public function set verticalAlign(value:Number):void
         {
             itemRendererProperties.verticalAlign = value;
         }

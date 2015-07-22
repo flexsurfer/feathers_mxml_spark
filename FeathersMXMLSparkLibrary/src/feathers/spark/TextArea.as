@@ -3,82 +3,46 @@
  */
 package feathers.spark
 {
-    import feathers.controls.SpinnerList;
+    import feathers.controls.TextArea;
 
-    public class SpinnerList extends feathers.controls.SpinnerList
+    public class TextArea extends feathers.controls.TextArea
     {
         private var _sparkLayoutData:SparkLayoutData;
 
-        public function SpinnerList()
+        public function TextArea()
         {
             super();
 
             _sparkLayoutData = new SparkLayoutData(this);
         }
 
-        public function set labelField(value:String):void
+        public function set style(value:String):void
         {
-            itemRendererProperties.labelField = value;
+            styleNameList.add(value);
         }
 
-        public function set iconLabelField(value:String):void
+        [Bindable(event="change")]
+        public function set enabled(value:Boolean):void
         {
-            itemRendererProperties.iconLabelField = value;
+            super.isEnabled = value;
         }
 
-        public function set iconSourceField(value:String):void
+        [Bindable(event="change")]
+        public function get enabled():Boolean
         {
-            itemRendererProperties.iconSourceField = value;
+            return super.isEnabled;
         }
 
-        public function set iconField(value:String):void
+        [Bindable(event="change")]
+        public function set editable(value:Boolean):void
         {
-            itemRendererProperties.iconField = value;
+            super.isEditable = value;
         }
 
-        public function set accessoryLabelField(value:String):void
+        [Bindable(event="change")]
+        public function get editable():Boolean
         {
-            itemRendererProperties.accessoryLabelField = value;
-        }
-
-        public function set accessorySourceField(value:String):void
-        {
-            itemRendererProperties.accessorySourceField = value;
-        }
-
-        public function set accessoryField(value:String):void
-        {
-            itemRendererProperties.accessoryField = value;
-        }
-
-        public function set accessoryPosition(value:Number):void
-        {
-            itemRendererProperties.accessoryPosition = value;
-        }
-
-        public function set accessoryGap(value:Number):void
-        {
-            itemRendererProperties.accessoryGap = value;
-        }
-
-        public function set gap(value:Number):void
-        {
-            itemRendererProperties.gap = value;
-        }
-
-        public function set horizontalAlign(value:String):void
-        {
-            itemRendererProperties.horizontalAlign = value;
-        }
-
-        public function set verticalAlign(value:String):void
-        {
-            itemRendererProperties.verticalAlign = value;
-        }
-
-        public function set layoutOrder(value:String):void
-        {
-            itemRendererProperties.layoutOrder = value;
+            return super.isEditable;
         }
 
         [PercentProxy("percentWidth")]

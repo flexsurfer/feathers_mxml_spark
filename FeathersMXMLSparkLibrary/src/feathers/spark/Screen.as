@@ -16,9 +16,16 @@ package feathers.spark
             layout = new AnchorLayout();
         }
 
-        protected function showNextScreen():void
+        protected function showNextScreen(event:String = "", data:Object = null):void
         {
-            dispatchEventWith(ScreenEvent.NEXT_SCREEN);
+            if (event != "")
+            {
+                dispatchEventWith(event, false, data);
+            }
+            else
+            {
+                dispatchEventWith(ScreenEvent.NEXT_SCREEN, false, data);
+            }
         }
 
         protected function cancel():void
