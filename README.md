@@ -20,4 +20,4 @@ The library with components extended Feathers components [Feathers SDK](http://f
 
 ### Known issues
 
-The editor will highlight percent values in red. However, the compiler will compile this file without issues. This issue can be fixed only in a future version of the Feathers SDK.
+The Intellij Idea will highlight percent values in red. However, the compiler will compile this file without issues. Unfortunately this issue can be fixed only in the Starling library, because this issue in the Idea https://youtrack.jetbrains.com/issue/IDEA-70677
