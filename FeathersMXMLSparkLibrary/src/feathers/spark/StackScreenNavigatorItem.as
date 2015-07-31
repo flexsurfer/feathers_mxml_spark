@@ -20,9 +20,9 @@ package feathers.spark
             addPopEvent(ScreenEvent.CLOSE);
         }
 
-        public function set itemRenderer(factory:IFactory):void
+        public function set itemRenderer(screen:Class):void
         {
-            this.screen = ClassFactory(factory).generator as Class;
+            this.screen = screen;
         }
 
         public function set nextScreen(screenId:String):void

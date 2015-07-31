@@ -6,10 +6,6 @@ package feathers.spark
     import feathers.controls.GroupedList;
     import feathers.controls.renderers.IGroupedListItemRenderer;
 
-    import mx.core.ClassFactory;
-
-    import mx.core.IFactory;
-
     public class GroupedList extends feathers.controls.GroupedList
     {
         private var _sparkLayoutData:SparkLayoutData;
@@ -25,11 +21,9 @@ package feathers.spark
             itemRendererProperties.labelField = value;
         }
 
-        [Inspectable(category="Data")]
-        
-        public function set itemRenderer(factory:IFactory):void
+        public function set itemRenderer(renderer:Class):void
         {
-            _customItemRendererClass = ClassFactory(factory).generator as Class;
+            _customItemRendererClass = renderer;
             itemRendererFactory = customItemRendererFactory;
         }
 
@@ -37,29 +31,31 @@ package feathers.spark
         {
             return new _customItemRendererClass();
         }
-        
+
         [PercentProxy("percentWidth")]
-        [Bindable(event="change")]
         override public function set width(value:Number):void
         {
+            value = SparkGlobal.scaleValue(value);
             super.width = value;
         }
 
-        override public function get width():Number
-        {
-            return super.width;
-        }
-
         [PercentProxy("percentWidth")]
-        [Bindable(event="change")]
-        override public function get height():Number
-        {
-            return super.height;
-        }
-
         override public function set height(value:Number):void
         {
+            value = SparkGlobal.scaleValue(value);
             super.height = value;
+        }
+
+        override public function set x(value:Number):void
+        {
+            value = SparkGlobal.scaleValue(value);
+            super.x = value;
+        }
+
+        override public function set y(value:Number):void
+        {
+            value = SparkGlobal.scaleValue(value);
+            super.y = value;
         }
 
         public function get percentWidth():Number

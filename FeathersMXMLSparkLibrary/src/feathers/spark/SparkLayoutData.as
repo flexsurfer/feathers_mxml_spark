@@ -22,17 +22,35 @@ package feathers.spark
         public function SparkLayoutData(control:ILayoutDisplayObject)
         {
             _control = control;
-            _control.addEventListener(Event.ADDED_TO_STAGE, onAddedToStageHandler);
+
+            if (_control.stage)
+            {
+                initLayoutData();
+            }
+            else
+            {
+                _control.addEventListener(Event.ADDED_TO_STAGE, onAddedToStageHandler);
+            }
         }
 
         private function onAddedToStageHandler(event:Event):void
         {
+            _control.removeEventListener(Event.ADDED_TO_STAGE, onAddedToStageHandler);
             initLayoutData();
         }
 
         private function initLayoutData():void
         {
-            if (_control.parent && _control.parent is LayoutGroup && LayoutGroup(_control.parent).layout)
+            if (layoutData)
+            {
+                setLayoutDataProp("top", _top);
+                setLayoutDataProp("right", _right);
+                setLayoutDataProp("bottom", _bottom);
+                setLayoutDataProp("left", _left);
+                setLayoutDataProp("horizontalCenter", _horizontalCenter);
+                setLayoutDataProp("verticalCenter", _verticalCenter);
+            }
+            else if (_control.parent && _control.parent is LayoutGroup && LayoutGroup(_control.parent).layout)
             {
                 if (LayoutGroup(_control.parent).layout is AnchorLayout)
                 {
@@ -61,6 +79,7 @@ package feathers.spark
 
         public function set top(value:Number):void
         {
+            value = SparkGlobal.scaleValue(value);
             this._top = value;
             setLayoutDataProp('top', value);
         }
@@ -74,6 +93,7 @@ package feathers.spark
 
         public function set right(value:Number):void
         {
+            value = SparkGlobal.scaleValue(value);
             if(this._right == value)
             {
                 return;
@@ -91,6 +111,7 @@ package feathers.spark
 
         public function set bottom(value:Number):void
         {
+            value = SparkGlobal.scaleValue(value);
             if(this._bottom == value)
             {
                 return;
@@ -108,6 +129,7 @@ package feathers.spark
 
         public function set left(value:Number):void
         {
+            value = SparkGlobal.scaleValue(value);
             if (this._left == value)
             {
                 return;
@@ -125,6 +147,7 @@ package feathers.spark
 
         public function set horizontalCenter(value:Number):void
         {
+            value = SparkGlobal.scaleValue(value);
             if(this._horizontalCenter == value)
             {
                 return;
@@ -142,6 +165,7 @@ package feathers.spark
 
         public function set verticalCenter(value:Number):void
         {
+            value = SparkGlobal.scaleValue(value);
             if(this._verticalCenter == value)
             {
                 return;
@@ -178,7 +202,7 @@ package feathers.spark
 
         private function setLayoutDataProp(prop:String, value:*):void
         {
-            if (layoutData && Object(layoutData).hasOwnProperty(prop) && value)
+            if (layoutData && Object(layoutData).hasOwnProperty(prop) && !isNaN(value))
             {
                 layoutData[prop] = value;
             }

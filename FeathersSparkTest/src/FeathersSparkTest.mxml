@@ -1,48 +1,17 @@
 <?xml version="1.0"?>
-<f:Application xmlns:f="library://ns.feathersui.com/mxml" xmlns:fx="http://ns.adobe.com/mxml/2009"
-               xmlns:spark="feathers.spark.*"
-               theme="feathers.themes.MetalWorksMobileTheme">
+<spark:Application xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:spark="feathers.spark.*"
+                   theme="feathers.themes.MetalWorksMobileTheme"
+                   originalHeight="700" originalWidth="300" splashScreenImage="TestSymb"
+                   cssSource="@Embed(source='assets/css/test.css', mimeType='application/octet-stream')">
 
-    <f:layout>
-        <f:AnchorLayout/>
-    </f:layout>
+    <spark:VGroup top="0" left="0" right="0" bottom="0"
+                  verticalAlign="middle" horizontalAlign="center" gap="20">
+        <spark:Label text="Default style"/>
+        <spark:Label text="CSS Style" styleName="myFontStyle"/>
+        <spark:Label text="Control style" fontWeight="bold" fontSize="30" color="0xFF0000"/>
 
-    <spark:VGroup width="100%" gap="20" paddingTop="20" top="50" horizontalAlign="center">
-        <spark:Label text="Feathers Spark Test"/>
-        <spark:HGroup horizontalAlign="center" gap="10" width="100%"
-                      paddingRight="20" paddingLeft="20" top="50">
-            <spark:Button height="80" id="button" label="Click Me" triggered="button_triggeredHandler(event)"/>
-            <spark:Spacer width="100%"/>
-            <f:Button id="button2" label="Click Me 2" triggered="button_triggeredHandler(event)"/>
-        </spark:HGroup>
-
-        <spark:HGroup horizontalAlign="center" gap="10" width="70%">
-            <f:Button id="button3" height="{button.height}" label="Click Me 3"
-                      triggered="button_triggeredHandler(event)"/>
-            <f:Button id="button4" label="Click Me 4" triggered="button_triggeredHandler(event)"/>
-        </spark:HGroup>
+        <spark:Button width="80%" label="Percent width"/>
+        <spark:Button width="140" label="Width in pt"/>
     </spark:VGroup>
 
-    <spark:Button id="button5" left="10" right="10" label="Click Me 5" bottom="50"
-                  triggered="button_triggeredHandler(event)"/>
-
-    <spark:Button id="button6" label="Click Me 6" verticalCenter="0" horizontalCenter="0"
-                  triggered="button_triggeredHandler(event)"/>
-
-    <fx:Script>
-        <![CDATA[
-        import feathers.controls.Callout;
-
-        import starling.display.DisplayObject;
-
-        import starling.events.Event;
-
-        private static function button_triggeredHandler(event:Event):void
-        {
-            var label:Label = new Label();
-            label.text = "Hi, I'm Feathers!\nHave a nice day.";
-            Callout.show(label, event.target as starling.display.DisplayObject);
-        }
-        ]]>
-    </fx:Script>
-</f:Application>
+</spark:Application>

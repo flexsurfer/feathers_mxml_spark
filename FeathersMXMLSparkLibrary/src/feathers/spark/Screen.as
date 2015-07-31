@@ -6,14 +6,20 @@ package feathers.spark
     import feathers.controls.Screen;
     import feathers.layout.AnchorLayout;
 
-    import mx.core.IFactory;
-
-    public class Screen extends feathers.controls.Screen implements IFactory
+    public class Screen extends feathers.controls.Screen
     {
         public function Screen()
         {
             super();
             layout = new AnchorLayout();
+        }
+
+        override protected function draw():void
+        {
+            var scale:Number = SparkGlobal.scale;
+            SparkGlobal.scale = NaN;
+            super.draw();
+            SparkGlobal.scale = scale;
         }
 
         protected function showNextScreen(event:String = "", data:Object = null):void
@@ -31,11 +37,6 @@ package feathers.spark
         protected function cancel():void
         {
             dispatchEventWith(ScreenEvent.CLOSE);
-        }
-
-        public function newInstance():*
-        {
-            return null;
         }
     }
 }

@@ -5,12 +5,9 @@ package feathers.spark
 {
     import feathers.controls.PanelScreen;
     import feathers.layout.AnchorLayout;
-
-    import mx.core.IFactory;
-
     import starling.events.Event;
 
-    public class PanelScreen extends feathers.controls.PanelScreen implements IFactory
+    public class PanelScreen extends feathers.controls.PanelScreen
     {
         private var _customHeader:Header;
 
@@ -18,6 +15,14 @@ package feathers.spark
         {
             super();
             layout = new AnchorLayout();
+        }
+
+        override protected function draw():void
+        {
+            var scale:Number = SparkGlobal.scale;
+            SparkGlobal.scale = NaN;
+            super.draw();
+            SparkGlobal.scale = scale;
         }
 
         public function set customHeader(value:Header):void
@@ -46,11 +51,6 @@ package feathers.spark
         protected function close():void
         {
             dispatchEventWith(ScreenEvent.CLOSE);
-        }
-
-        public function newInstance():*
-        {
-            return null;
         }
 
         private var _data:Object;

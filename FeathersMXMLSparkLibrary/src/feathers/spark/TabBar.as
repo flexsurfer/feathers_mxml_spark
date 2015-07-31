@@ -14,40 +14,40 @@ package feathers.spark
             super();
         }
 
-        [Bindable(event="change")]
         public function set enabled(value:Boolean):void
         {
             super.isEnabled = value;
         }
 
-        [Bindable(event="change")]
         public function get enabled():Boolean
         {
             return super.isEnabled;
         }
 
         [PercentProxy("percentWidth")]
-        [Bindable(event="change")]
         override public function set width(value:Number):void
         {
+            value = SparkGlobal.scaleValue(value);
             super.width = value;
         }
 
-        override public function get width():Number
-        {
-            return super.width;
-        }
-
         [PercentProxy("percentWidth")]
-        [Bindable(event="change")]
-        override public function get height():Number
-        {
-            return super.height;
-        }
-
         override public function set height(value:Number):void
         {
+            value = SparkGlobal.scaleValue(value);
             super.height = value;
+        }
+
+        override public function set x(value:Number):void
+        {
+            value = SparkGlobal.scaleValue(value);
+            super.x = value;
+        }
+
+        override public function set y(value:Number):void
+        {
+            value = SparkGlobal.scaleValue(value);
+            super.y = value;
         }
 
         public function get percentWidth():Number

@@ -44,10 +44,11 @@ package feathers.spark
             setLayoutProp('verticalAlign', value);
         }
 
-        private var _gap:Number;
+        private var _gap:Number = NaN;
 
         public function set gap(value:Number):void
         {
+            value = SparkGlobal.scaleValue(value);
             this._gap = value;
             setLayoutProp('gap', value);
         }
@@ -70,7 +71,7 @@ package feathers.spark
             this.paddingLeft = value;
         }
 
-        private var _paddingTop:Number;
+        private var _paddingTop:Number = NaN;
 
         public function get paddingTop():Number
         {
@@ -79,11 +80,12 @@ package feathers.spark
 
         public function set paddingTop(value:Number):void
         {
+            value = SparkGlobal.scaleValue(value);
             this._paddingTop = value;
             setLayoutProp('paddingTop', value);
         }
 
-        private var _paddingRight:Number;
+        private var _paddingRight:Number = NaN;
 
         public function get paddingRight():Number
         {
@@ -92,11 +94,12 @@ package feathers.spark
 
         public function set paddingRight(value:Number):void
         {
+            value = SparkGlobal.scaleValue(value);
             this._paddingRight = value;
             setLayoutProp('paddingRight', value);
         }
 
-        private var _paddingBottom:Number;
+        private var _paddingBottom:Number = NaN;
 
         public function get paddingBottom():Number
         {
@@ -105,11 +108,12 @@ package feathers.spark
 
         public function set paddingBottom(value:Number):void
         {
+            value = SparkGlobal.scaleValue(value);
             this._paddingBottom = value;
             setLayoutProp('paddingBottom', value);
         }
 
-        private var _paddingLeft:Number;
+        private var _paddingLeft:Number = NaN;
 
         public function get paddingLeft():Number
         {
@@ -118,13 +122,15 @@ package feathers.spark
 
         public function set paddingLeft(value:Number):void
         {
+            value = SparkGlobal.scaleValue(value);
             this._paddingLeft = value;
             setLayoutProp('paddingLeft', value);
         }
 
         protected function setLayoutProp(prop:String, value:*):void
         {
-            if (_control.layout && Object(_control.layout).hasOwnProperty(prop) && value)
+            if (_control.layout && Object(_control.layout).hasOwnProperty(prop) &&
+                    ((value is Number && !isNaN(value)) || (value is String && value != "")))
             {
                 _control.layout[prop] = value;
             }

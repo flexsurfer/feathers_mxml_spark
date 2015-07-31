@@ -6,6 +6,8 @@ package feathers.spark
     import feathers.controls.LayoutGroup;
     import feathers.layout.AnchorLayout;
 
+    import starling.events.Event;
+
     public class Group extends LayoutGroup
     {
         private var _sparkLayoutData:SparkLayoutData;
@@ -18,35 +20,31 @@ package feathers.spark
             initLayout();
         }
 
+        override protected function draw():void
+        {
+            var scale:Number = SparkGlobal.scale;
+            SparkGlobal.scale = NaN;
+            super.draw();
+            SparkGlobal.scale = scale;
+        }
+
         protected function initLayout():void
         {
             layout = new AnchorLayout();
         }
 
-        [Bindable(event="change")]
         [PercentProxy("percentWidth")]
-
         override public function set width(value:Number):void
         {
+            value = SparkGlobal.scaleValue(value);
             super.width = value;
         }
 
-        override public function get width():Number
-        {
-            return super.width;
-        }
-
-        [Bindable(event="change")]
         [PercentProxy("percentWidth")]
-
         override public function set height(value:Number):void
         {
+            value = SparkGlobal.scaleValue(value);
             super.height = value;
-        }
-
-        override public function get height():Number
-        {
-            return super.height;
         }
 
         public function get percentWidth():Number

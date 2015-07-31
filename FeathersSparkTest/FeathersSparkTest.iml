@@ -14,11 +14,14 @@
             <entry library-id="3124e4c5-d5b3-46ce-98cb-7fd90644140b">
               <dependency linkage="Merged" />
             </entry>
+            <entry library-id="d9ff7731-6c5e-4884-b283-fdd09bb57b34">
+              <dependency linkage="Merged" />
+            </entry>
           </entries>
           <sdk name="feathersSDK" />
         </dependencies>
         <compiler-options>
-          <option name="additionalOptions" value="-preloader=" />
+          <option name="additionalOptions" value="-keep-generated-actionscript" />
         </compiler-options>
         <packaging-air-desktop />
         <packaging-android enabled="true" use-generated-descriptor="false" custom-descriptor-path="$MODULE_DIR$/FeathersSparkTest-app.xml" package-file-name="FeathersSparkTest" />
@@ -36,11 +39,14 @@
             <entry library-id="caa59e20-cbeb-4627-816d-2c308f5637a7">
               <dependency linkage="Merged" />
             </entry>
+            <entry library-id="89a62cef-e824-4f18-86ef-6ac11763ee37">
+              <dependency linkage="Merged" />
+            </entry>
           </entries>
           <sdk name="feathersSDK" />
         </dependencies>
         <compiler-options>
-          <option name="additionalOptions" value="-preloader=" />
+          <option name="additionalOptions" value="-preloader= -keep-generated-actionscript" />
         </compiler-options>
         <packaging-air-desktop />
         <packaging-android enabled="true" use-generated-descriptor="false" custom-descriptor-path="$MODULE_DIR$/FeathersSparkTest-app.xml" package-file-name="FeathersScreensTest" />
@@ -75,6 +81,26 @@
         <CLASSES>
           <root url="jar://$USER_HOME$/feathersSDK/frameworks/themes/MetalWorksMobileTheme/MetalWorksMobileTheme.swc!/" />
           <root url="jar://E:/feathersSDK/frameworks/themes/MetalWorksMobileTheme/MetalWorksMobileTheme.swc!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library type="flex">
+        <properties id="d9ff7731-6c5e-4884-b283-fdd09bb57b34" />
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/src/assets/img/testSymb.swc!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library type="flex">
+        <properties id="89a62cef-e824-4f18-86ef-6ac11763ee37" />
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/src/assets/img/testSymb.swc!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
