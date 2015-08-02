@@ -3,48 +3,27 @@
  */
 package feathers.spark
 {
-    import feathers.controls.Check;
+    import feathers.controls.WebView;
 
-    [Event(name="click",type="starling.events.Event")]
-
-    public class Check extends feathers.controls.Check
+    public class WebView extends feathers.controls.WebView
     {
         private var _sparkLayoutData:SparkLayoutData;
 
-        public function Check()
+        private var _url:String;
+
+        public function WebView()
         {
             super();
         }
 
-        override protected function trigger():void
+        override protected function draw():void
         {
-            super.trigger();
-            dispatchEventWith("click");
-        }
-
-        public function set style(value:String):void
-        {
-            styleNameList.add(value);
-        }
-
-        public function set selected(value:Boolean):void
-        {
-            super.isSelected = value;
-        }
-
-        public function get selected():Boolean
-        {
-            return super.isSelected;
-        }
-
-        public function set enabled(value:Boolean):void
-        {
-            super.isEnabled = value;
-        }
-
-        public function get enabled():Boolean
-        {
-            return super.isEnabled;
+            super.draw();
+            if (_url)
+            {
+                loadURL(_url);
+                _url = null;
+            }
         }
 
         [PercentProxy("percentWidth")]
@@ -160,6 +139,15 @@ package feathers.spark
                 _sparkLayoutData = new SparkLayoutData(this);
             }
             return _sparkLayoutData;
+        }
+
+        public function set url(value:String):void
+        {
+            _url = value;
+            if (isInitialized)
+            {
+                invalidate(INVALIDATION_FLAG_LAYOUT);
+            }
         }
     }
 }

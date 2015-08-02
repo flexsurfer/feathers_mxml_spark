@@ -46,7 +46,7 @@ package feathers.spark
             super.width = value;
         }
 
-        [PercentProxy("percentWidth")]
+        [PercentProxy("percentHeight")]
         override public function set height(value:Number):void
         {
             value = SparkGlobal.scaleValue(value);
