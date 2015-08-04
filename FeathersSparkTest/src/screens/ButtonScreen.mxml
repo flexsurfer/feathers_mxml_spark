@@ -17,10 +17,10 @@
         <spark:Button id="btn" label="Normal Button"/>
         <spark:Button label="Disabled Button" enabled="false"/>
         <spark:ToggleButton label="Toggle Button" selected="true"/>
-        <spark:Button label="Call to Action Button" style="{feathers.controls.Button.ALTERNATE_STYLE_NAME_CALL_TO_ACTION_BUTTON}"/>
-        <spark:Button label="Danger Button" style="{feathers.controls.Button.ALTERNATE_STYLE_NAME_DANGER_BUTTON}"/>
-        <spark:Button label="Back Button" style="{feathers.controls.Button.ALTERNATE_STYLE_NAME_BACK_BUTTON}"/>
-        <spark:Button label="Forward Button" style="{feathers.controls.Button.ALTERNATE_STYLE_NAME_FORWARD_BUTTON}"/>
+        <spark:Button label="Call to Action Button" styleName="{feathers.controls.Button.ALTERNATE_STYLE_NAME_CALL_TO_ACTION_BUTTON}"/>
+        <spark:Button label="Danger Button" styleName="{feathers.controls.Button.ALTERNATE_STYLE_NAME_DANGER_BUTTON}"/>
+        <spark:Button label="Back Button" styleName="{feathers.controls.Button.ALTERNATE_STYLE_NAME_BACK_BUTTON}"/>
+        <spark:Button label="Forward Button" styleName="{feathers.controls.Button.ALTERNATE_STYLE_NAME_FORWARD_BUTTON}"/>
     </spark:VGroup>
 
     <fx:Script>

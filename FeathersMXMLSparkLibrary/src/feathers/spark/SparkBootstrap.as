@@ -9,6 +9,7 @@ package feathers.spark
     import feathers.utils.math.roundToPrecision;
 
     import flash.display.DisplayObject;
+    import flash.display.Sprite;
 
     import flash.display.StageScaleMode;
 
@@ -49,6 +50,8 @@ package feathers.spark
                 preloader.cacheAsBitmap = true;
                 addChild(preloader);
             }
+
+            VectorClip.container = this;
         }
 
         override protected function starling_rootCreatedHandler(event:starling.events.Event):void
