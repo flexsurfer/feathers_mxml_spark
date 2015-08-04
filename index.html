@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>Feathers MXML Spark Library by flexsurfer</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>Feathers MXML Spark Library</h1>
+        <h2>feathers, feathersui, starling, stage3d, mobile, AIR, as3, mxml, spark</h2>
+        <a href="https://github.com/flexsurfer/feathers_mxml_spark" class="button"><small>View project on</small> GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h1>
+<a id="feathers-mxml-spark-library" class="anchor" href="#feathers-mxml-spark-library" aria-hidden="true"><span class="octicon octicon-link"></span></a>Feathers MXML Spark Library</h1>
+
+<p>The library with components extended Feathers components <a href="http://feathersui.com/sdk/">Feathers SDK</a>, to work like with Flex Spark components</p>
+
+<p><img src="https://raw.githubusercontent.com/flexsurfer/feathers_mxml_spark/master/feathers.png" alt="alt tag"></p>
+
+<div class="highlight highlight-XML"><pre>&lt;?<span class="pl-ent">xml</span><span class="pl-e"> version</span>=<span class="pl-s"><span class="pl-pds">"</span>1.0<span class="pl-pds">"</span></span>?&gt;
+&lt;<span class="pl-ent">spark</span><span class="pl-ent">:</span><span class="pl-ent">Application</span> <span class="pl-e">xmlns</span><span class="pl-e">:</span><span class="pl-e">fx</span>=<span class="pl-s"><span class="pl-pds">"</span>http://ns.adobe.com/mxml/2009<span class="pl-pds">"</span></span> <span class="pl-e">xmlns</span><span class="pl-e">:</span><span class="pl-e">spark</span>=<span class="pl-s"><span class="pl-pds">"</span>feathers.spark.*<span class="pl-pds">"</span></span>
+                   <span class="pl-e">theme</span>=<span class="pl-s"><span class="pl-pds">"</span>feathers.themes.MetalWorksMobileTheme<span class="pl-pds">"</span></span>
+                   <span class="pl-e">originalHeight</span>=<span class="pl-s"><span class="pl-pds">"</span>700<span class="pl-pds">"</span></span> <span class="pl-e">originalWidth</span>=<span class="pl-s"><span class="pl-pds">"</span>300<span class="pl-pds">"</span></span> <span class="pl-e">splashScreenImage</span>=<span class="pl-s"><span class="pl-pds">"</span>TestSymb<span class="pl-pds">"</span></span>
+                   <span class="pl-e">cssSource</span>=<span class="pl-s"><span class="pl-pds">"</span>@Embed(source='assets/css/test.css', mimeType='application/octet-stream')<span class="pl-pds">"</span></span>&gt;
+
+    &lt;<span class="pl-ent">spark</span><span class="pl-ent">:</span><span class="pl-ent">VGroup</span> <span class="pl-e">top</span>=<span class="pl-s"><span class="pl-pds">"</span>0<span class="pl-pds">"</span></span> <span class="pl-e">left</span>=<span class="pl-s"><span class="pl-pds">"</span>0<span class="pl-pds">"</span></span> <span class="pl-e">right</span>=<span class="pl-s"><span class="pl-pds">"</span>0<span class="pl-pds">"</span></span> <span class="pl-e">bottom</span>=<span class="pl-s"><span class="pl-pds">"</span>0<span class="pl-pds">"</span></span>
+                  <span class="pl-e">verticalAlign</span>=<span class="pl-s"><span class="pl-pds">"</span>middle<span class="pl-pds">"</span></span> <span class="pl-e">horizontalAlign</span>=<span class="pl-s"><span class="pl-pds">"</span>center<span class="pl-pds">"</span></span> <span class="pl-e">gap</span>=<span class="pl-s"><span class="pl-pds">"</span>20<span class="pl-pds">"</span></span>&gt;
+        &lt;<span class="pl-ent">spark</span><span class="pl-ent">:</span><span class="pl-ent">Label</span> <span class="pl-e">text</span>=<span class="pl-s"><span class="pl-pds">"</span>Default style<span class="pl-pds">"</span></span>/&gt;
+        &lt;<span class="pl-ent">spark</span><span class="pl-ent">:</span><span class="pl-ent">Label</span> <span class="pl-e">text</span>=<span class="pl-s"><span class="pl-pds">"</span>CSS Style<span class="pl-pds">"</span></span> <span class="pl-e">styleName</span>=<span class="pl-s"><span class="pl-pds">"</span>myFontStyle<span class="pl-pds">"</span></span>/&gt;
+        &lt;<span class="pl-ent">spark</span><span class="pl-ent">:</span><span class="pl-ent">Label</span> <span class="pl-e">text</span>=<span class="pl-s"><span class="pl-pds">"</span>Control style<span class="pl-pds">"</span></span> <span class="pl-e">fontWeight</span>=<span class="pl-s"><span class="pl-pds">"</span>bold<span class="pl-pds">"</span></span> <span class="pl-e">fontSize</span>=<span class="pl-s"><span class="pl-pds">"</span>30<span class="pl-pds">"</span></span> <span class="pl-e">color</span>=<span class="pl-s"><span class="pl-pds">"</span>0xFF0000<span class="pl-pds">"</span></span>/&gt;
+
+        &lt;<span class="pl-ent">spark</span><span class="pl-ent">:</span><span class="pl-ent">Button</span> <span class="pl-e">width</span>=<span class="pl-s"><span class="pl-pds">"</span>80%<span class="pl-pds">"</span></span> <span class="pl-e">label</span>=<span class="pl-s"><span class="pl-pds">"</span>Percent width<span class="pl-pds">"</span></span>/&gt;
+        &lt;<span class="pl-ent">spark</span><span class="pl-ent">:</span><span class="pl-ent">Button</span> <span class="pl-e">width</span>=<span class="pl-s"><span class="pl-pds">"</span>140<span class="pl-pds">"</span></span> <span class="pl-e">label</span>=<span class="pl-s"><span class="pl-pds">"</span>Width in pt<span class="pl-pds">"</span></span>/&gt;
+    &lt;/<span class="pl-ent">spark</span><span class="pl-ent">:</span><span class="pl-ent">VGroup</span>&gt;
+
+&lt;/<span class="pl-ent">spark</span><span class="pl-ent">:</span><span class="pl-ent">Application</span>&gt;</pre></div>
+
+<h3>
+<a id="known-issues" class="anchor" href="#known-issues" aria-hidden="true"><span class="octicon octicon-link"></span></a>Known issues</h3>
+
+<p>The Intellij Idea will highlight percent values in red. However, the compiler will compile this file without issues. Unfortunately this issue can be fixed only in the Starling library, because this issue in the Idea <a href="https://youtrack.jetbrains.com/issue/IDEA-70677">https://youtrack.jetbrains.com/issue/IDEA-70677</a></p>
+
+<p><a href="https://github.com/flexsurfer/feathers_mxml_spark/wiki/Percent-dimensions-in-IntellijIdea">Workaround</a></p>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/flexsurfer/feathers_mxml_spark/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/flexsurfer/feathers_mxml_spark/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/flexsurfer/feathers_mxml_spark"></a> is maintained by <a href="https://github.com/flexsurfer">flexsurfer</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  
+  </body>
+</html>
