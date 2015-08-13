@@ -3,8 +3,8 @@
  */
 package feathers.spark
 {
+    import feathers.controls.Drawers;
     import feathers.controls.LayoutGroup;
-    import feathers.core.IApplication;
 
     import flash.display.StageScaleMode;
     import flash.errors.IllegalOperationError;
@@ -12,9 +12,11 @@ package feathers.spark
 
     import starling.core.Starling;
 
+    import starling.display.DisplayObject;
+
     [Frame(factoryClass="feathers.spark.SparkBootstrap")]
 
-    public class Application extends Group
+    public class DrawersApplication extends Drawers
     {
         public var theme:Class;
         public var splashScreenImage:Class;
@@ -27,11 +29,12 @@ package feathers.spark
         [Inspectable(type="String", enumeration="noBorder,exactFit", defaultValue="noBorder")]
         public var scaleMode:String = StageScaleMode.NO_BORDER;
 
-        public function Application()
+        public function DrawersApplication(content:DisplayObject = null)
         {
-            super();
+            super(content);
             this.autoSizeMode = LayoutGroup.AUTO_SIZE_MODE_STAGE;
         }
+
         /**
          * @private
          */

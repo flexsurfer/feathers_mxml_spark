@@ -11,6 +11,7 @@ package feathers.spark
     import flash.display.MovieClip;
 
     import flash.display.Sprite;
+    import flash.display.StageScaleMode;
 
     import flash.geom.Matrix;
     import flash.geom.Point;
@@ -21,6 +22,7 @@ package feathers.spark
     import starling.core.Starling;
     import starling.events.Event;
     import starling.utils.MatrixUtil;
+    import starling.utils.ScaleMode;
 
     public class VectorClip extends FeathersControl
     {
@@ -34,6 +36,10 @@ package feathers.spark
 
         private var _sparkLayoutData:SparkLayoutData;
         private var _rendered:Boolean;
+
+        private var _autoPlay:Boolean = false;
+
+        private var _scaleContent:String = StageScaleMode.EXACT_FIT;
 
         public function VectorClip()
         {
@@ -92,12 +98,20 @@ package feathers.spark
 
             if (_source)
             {
-                if (!height || !width)
+                if (!_autoPlay)
                 {
-                    _source.scaleX = SparkGlobal.scale;
-                    _source.scaleY = SparkGlobal.scale;
+                     stop();
+                }
 
+                _source.scaleX = SparkGlobal.scale;
+                _source.scaleY = SparkGlobal.scale;
+
+                if (!height)
+                {
                     super.height = _source.height;
+                }
+                if (!width)
+                {
                     super.width = _source.width;
                 }
             }
@@ -170,22 +184,25 @@ package feathers.spark
                 _source.x = Math.round(starlingViewPort.x + HELPER_POINT.x * scaleFactor);
                 _source.y = Math.round(starlingViewPort.y + HELPER_POINT.y * scaleFactor);
 
-                var viewPortWidth:Number = Math.round(this.actualWidth * scaleFactor * globalScaleX);
-                if(viewPortWidth < 1 ||
-                        viewPortWidth !== viewPortWidth) //isNaN
+                if (_scaleContent == StageScaleMode.EXACT_FIT)
                 {
-                    viewPortWidth = 1;
-                }
+                    var viewPortWidth:Number = Math.round(this.actualWidth * scaleFactor * globalScaleX);
+                    if(viewPortWidth < 1 ||
+                            viewPortWidth !== viewPortWidth) //isNaN
+                    {
+                        viewPortWidth = 1;
+                    }
 
-                var viewPortHeight:Number = Math.round(this.actualHeight * scaleFactor * globalScaleY);
-                if(viewPortHeight < 1 ||
-                        viewPortHeight !== viewPortHeight) //isNaN
-                {
-                    viewPortHeight = 1;
-                }
+                    var viewPortHeight:Number = Math.round(this.actualHeight * scaleFactor * globalScaleY);
+                    if(viewPortHeight < 1 ||
+                            viewPortHeight !== viewPortHeight) //isNaN
+                    {
+                        viewPortHeight = 1;
+                    }
 
-                _source.width = viewPortWidth;
-                _source.height = viewPortHeight;
+                    _source.width = viewPortWidth;
+                    _source.height = viewPortHeight;
+                }
 
                 _rendered = true;
             }
@@ -309,6 +326,27 @@ package feathers.spark
         public function get content():DisplayObject
         {
             return _source;
+        }
+
+        public function get autoPlay():Boolean
+        {
+            return _autoPlay;
+        }
+
+        public function set autoPlay(value:Boolean):void
+        {
+            _autoPlay = value;
+        }
+
+        public function get scaleContent():String
+        {
+            return _scaleContent;
+        }
+
+        [Inspectable(type="String", enumeration="noBorder,exactFit", defaultValue="noBorder")]
+        public function set scaleContent(value:String):void
+        {
+            _scaleContent = value;
         }
     }
 }

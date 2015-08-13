@@ -19,6 +19,7 @@ package feathers.spark
         public var theme:Class;
         public var splashScreenImage:Class;
         public var preloader:Class;
+        public var showStats:Boolean;
 
         public var originalWidth:Number;
         public var originalHeight:Number;

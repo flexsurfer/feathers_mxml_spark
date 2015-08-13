@@ -9,7 +9,6 @@ package feathers.spark
     import feathers.utils.math.roundToPrecision;
 
     import flash.display.DisplayObject;
-    import flash.display.Sprite;
 
     import flash.display.StageScaleMode;
 
@@ -60,6 +59,12 @@ package feathers.spark
             {
                 removeChild(preloader);
             }
+
+            if (info().showStats)
+            {
+                starling.showStats = true;
+            }
+
             super.starling_rootCreatedHandler(event);
         }
 
