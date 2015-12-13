@@ -71,7 +71,7 @@
     <!-- The render mode for the app (either auto, cpu, gpu, or direct). Optional. Default auto -->
     <renderMode>direct</renderMode>
     <!-- Whether the default direct mode rendering context allocates storage for depth and stencil buffers.  Optional.  Default false. -->
-    <!--<depthAndStencil></depthAndStencil>-->
+    <depthAndStencil>true</depthAndStencil>
     <!-- Whether or not to pan when a soft keyboard is raised or lowered (either "pan" or "none").  Optional.  Defaults "pan." -->
     <!--<softKeyboardBehavior></softKeyboardBehavior>-->
     <!-- Display Resolution for the app (either "standard" or "high"). Optional, OSX-only. Default "standard" -->

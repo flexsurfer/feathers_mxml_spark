@@ -11,6 +11,7 @@ package feathers.spark
     import flash.text.StyleSheet;
 
     import starling.core.Starling;
+    import starling.display.DisplayObject;
 
     [Frame(factoryClass="feathers.spark.SparkBootstrap")]
 

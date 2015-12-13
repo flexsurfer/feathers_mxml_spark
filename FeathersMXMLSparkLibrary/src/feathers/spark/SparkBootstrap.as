@@ -28,8 +28,8 @@ package feathers.spark
             {
                 var scaleMode:String =  inf['scaleMode'] ? inf['scaleMode'] : StageScaleMode.NO_BORDER;
                 SparkGlobal.scale = scaleMode == StageScaleMode.NO_BORDER ?
-                        roundToPrecision(calculateScaleRatioToFill(inf['originalWidth'], inf['originalHeight'], this.stage.fullScreenWidth, this.stage.fullScreenHeight), 2) :
-                        roundToPrecision(calculateScaleRatioToFit(inf['originalWidth'], inf['originalHeight'], this.stage.fullScreenWidth, this.stage.fullScreenHeight), 2);
+                        roundToPrecision(calculateScaleRatioToFill(inf['originalWidth'], inf['originalHeight'], this.stage.fullScreenWidth, this.stage.fullScreenHeight), 4) :
+                        roundToPrecision(calculateScaleRatioToFit(inf['originalWidth'], inf['originalHeight'], this.stage.fullScreenWidth, this.stage.fullScreenHeight), 4);
 
                 trace("Spark: ScreenWidth: " + this.stage.fullScreenWidth);
                 trace("Spark: ScreenHeight: " +  this.stage.fullScreenHeight);
@@ -62,7 +62,7 @@ package feathers.spark
 
             if (info().showStats)
             {
-                starling.showStats = true;
+                starling.showStatsAt("right", "bottom", roundToPrecision(this.stage.fullScreenHeight/500));
             }
 
             super.starling_rootCreatedHandler(event);

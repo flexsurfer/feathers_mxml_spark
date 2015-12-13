@@ -129,6 +129,11 @@ package feathers.spark
         override public function render(support:RenderSupport, parentAlpha:Number):void
         {
             this.calculatePosition();
+            if (container && _source && !container.contains(_source))
+            {
+                _rendered = false;
+                container.addChild(_source);
+            }
             super.render(support, parentAlpha);
         }
 
@@ -136,17 +141,6 @@ package feathers.spark
         {
             clear();
             super.dispose();
-        }
-
-        override protected function feathersControl_addedToStageHandler(event:Event):void
-        {
-            super.feathersControl_addedToStageHandler(event);
-
-            if (container && _source)
-            {
-                _rendered = false;
-                container.addChild(_source);
-            }
         }
 
         override protected function feathersControl_removedFromStageHandler(event:Event):void
@@ -165,7 +159,7 @@ package feathers.spark
 
         protected function calculatePosition():void
         {
-            if (_source && !_rendered)
+            if (_source /*&& !_rendered*/)
             {
                 var starlingViewPort:Rectangle = Starling.current.viewPort;
 

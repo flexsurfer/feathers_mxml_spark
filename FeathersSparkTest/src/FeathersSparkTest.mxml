@@ -1,17 +1,95 @@
 <?xml version="1.0"?>
-<spark:Application xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:spark="feathers.spark.*"
-                   theme="feathers.themes.MetalWorksMobileTheme"
+<spark:Application xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:spark="feathers.spark.*" xmlns:core="feathers.core.*"
+                   xmlns:display="starling.display.*" xmlns:f="library://ns.feathersui.com/mxml"
+                   theme="feathers.themes.MetalWorksMobileTheme" showStats="true"
                    originalHeight="700" originalWidth="300" splashScreenImage="TestSymb"
                    cssSource="@Embed(source='assets/css/test.css', mimeType='application/octet-stream')">
 
-    <spark:VGroup top="0" left="0" right="0" bottom="0"
-                  verticalAlign="middle" horizontalAlign="center" gap="20">
-        <spark:Label text="Default style"/>
-        <spark:Label text="CSS Style" styleName="myFontStyle"/>
-        <spark:Label text="Control style" fontWeight="bold" fontSize="30" color="0xFF0000"/>
+    <spark:HGroup verticalCenter="0" horizontalCenter="0">
+        <spark:SpinnerList labelField="text" width="40" height="80" typicalItem="{{text: '1'}}">
+            <f:ListCollection>
+                <fx:Object text="1"/>
+                <fx:Object text="2"/>
+                <fx:Object text="3"/>
+                <fx:Object text="4"/>
+                <fx:Object text="5"/>
+                <fx:Object text="6"/>
+                <fx:Object text="7"/>
+                <fx:Object text="8"/>
+                <fx:Object text="9"/>
+                <fx:Object text="10"/>
+            </f:ListCollection>
+        </spark:SpinnerList>
+        <spark:SpinnerList labelField="text" width="40" height="80" typicalItem="{{text: '1'}}">
+            <f:ListCollection>
+                <fx:Object text="1"/>
+                <fx:Object text="2"/>
+                <fx:Object text="3"/>
+                <fx:Object text="4"/>
+                <fx:Object text="5"/>
+                <fx:Object text="6"/>
+                <fx:Object text="7"/>
+                <fx:Object text="8"/>
+                <fx:Object text="9"/>
+                <fx:Object text="10"/>
+            </f:ListCollection>
+        </spark:SpinnerList>
+        <spark:SpinnerList labelField="text" width="40" height="80" typicalItem="{{text: '1'}}">
+            <f:ListCollection>
+                <fx:Object text="1"/>
+                <fx:Object text="2"/>
+                <fx:Object text="3"/>
+                <fx:Object text="4"/>
+                <fx:Object text="5"/>
+                <fx:Object text="6"/>
+                <fx:Object text="7"/>
+                <fx:Object text="8"/>
+                <fx:Object text="9"/>
+                <fx:Object text="10"/>
+            </f:ListCollection>
+        </spark:SpinnerList>
+        <spark:SpinnerList labelField="text" width="40" height="80" typicalItem="{{text: '1'}}">
+            <f:ListCollection>
+                <fx:Object text="1"/>
+                <fx:Object text="2"/>
+                <fx:Object text="3"/>
+                <fx:Object text="4"/>
+                <fx:Object text="5"/>
+                <fx:Object text="6"/>
+                <fx:Object text="7"/>
+                <fx:Object text="8"/>
+                <fx:Object text="9"/>
+                <fx:Object text="10"/>
+            </f:ListCollection>
+        </spark:SpinnerList>
+    </spark:HGroup>
+    <fx:Script>
+        <![CDATA[
+        import feathers.controls.Callout;
+        import feathers.controls.popups.DropDownPopUpContentManager;
+        import feathers.utils.mxml.factoryFromInstance;
 
-        <spark:Button width="80%" label="Percent width"/>
-        <spark:Button width="140" label="Width in pt"/>
-    </spark:VGroup>
+        [Embed(source='assets/test.swf', symbol='testMovieClip')]
+        [Bindable]
+        private var tmc:Class;
 
+
+        override protected function initialize():void
+        {
+            super.initialize();
+        }
+
+        private function button1_clickHandler():void
+        {
+        }
+
+        [Bindable]
+        private var binCls:Class;
+
+
+        private function buttonShow_clickHandler():void
+        {
+        }
+        ]]>
+    </fx:Script>
 </spark:Application>

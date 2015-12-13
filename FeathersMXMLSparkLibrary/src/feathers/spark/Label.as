@@ -141,6 +141,18 @@ package feathers.spark
             super.height = value;
         }
 
+        override public function set maxWidth(value:Number):void
+        {
+            value = SparkGlobal.scaleValue(value);
+            super.maxWidth = value;
+        }
+
+        override public function set maxHeight(value:Number):void
+        {
+            value = SparkGlobal.scaleValue(value);
+            super.maxHeight = value;
+        }
+
         override public function set x(value:Number):void
         {
             value = SparkGlobal.scaleValue(value);

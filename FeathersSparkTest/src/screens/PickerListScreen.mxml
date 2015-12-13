@@ -3,7 +3,12 @@
                    title="Picker List" headerFactory="{BackButtonFactory.customHeaderFactory(close)}">
 
     <spark:PickerList id="list" prompt="Select an Item" labelField="text" typicalItem='{{ text: "Select an Item" }}'
-                      horizontalCenter="0" verticalCenter="0"/>
+                      horizontalCenter="0" verticalCenter="0" listFactory="{function():List{return popupList;}}">
+    </spark:PickerList>
+
+    <fx:Declarations>
+        <spark:List id="popupList" labelField="text"/>
+    </fx:Declarations>
 
     <fx:Script>
         <![CDATA[
@@ -11,6 +16,8 @@
         import feathers.controls.renderers.IListItemRenderer;
         import feathers.data.ListCollection;
         import feathers.spark.List;
+
+        import flash.sampler.ClassFactory;
 
         import screens.ui.BackButtonFactory;
 
@@ -30,7 +37,7 @@
             this.list.dataProvider = new ListCollection(items);
             this.list.selectedIndex = -1;
 
-            this.list.listFactory = function ():List
+            /*this.list.listFactory = function ():List
             {
                 var list:List = new List();
                 //notice that we're setting typicalItem on the list separately. we
@@ -49,7 +56,7 @@
                     return renderer;
                 };
                 return list;
-            };
+            };*/
         }
         ]]>
     </fx:Script>

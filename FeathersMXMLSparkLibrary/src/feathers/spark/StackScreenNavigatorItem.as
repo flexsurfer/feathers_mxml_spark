@@ -30,6 +30,11 @@ package feathers.spark
             setScreenIDForPushEvent(ScreenEvent.NEXT_SCREEN, screenId);
         }
 
+        public function set complete(handler:Function):void
+        {
+            setFunctionForPushEvent(Event.COMPLETE, handler);
+        }
+
         public function set data(data:Object):void
         {
             properties = {"data" : data};

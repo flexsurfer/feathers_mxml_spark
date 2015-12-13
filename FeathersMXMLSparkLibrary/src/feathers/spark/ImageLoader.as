@@ -3,92 +3,15 @@
  */
 package feathers.spark
 {
-    import feathers.controls.List;
+    import feathers.controls.ImageLoader;
 
-    public class List extends feathers.controls.List
+    public class ImageLoader extends feathers.controls.ImageLoader
     {
         private var _sparkLayoutData:SparkLayoutData;
 
-        public function List()
+        public function ImageLoader()
         {
             super();
-        }
-
-        public function set labelField(value:String):void
-        {
-            itemRendererProperties.labelField = value;
-        }
-
-        public function set iconLabelField(value:String):void
-        {
-            itemRendererProperties.iconLabelField = value;
-        }
-
-        public function set iconSourceField(value:String):void
-        {
-            itemRendererProperties.iconSourceField = value;
-        }
-
-        public function set iconField(value:String):void
-        {
-            itemRendererProperties.iconField = value;
-        }
-
-        public function set accessoryLabelField(value:String):void
-        {
-            itemRendererProperties.accessoryLabelField = value;
-        }
-
-        public function set accessorySourceField(value:String):void
-        {
-            itemRendererProperties.accessorySourceField = value;
-        }
-
-        public function set accessoryField(value:String):void
-        {
-            itemRendererProperties.accessoryField = value;
-        }
-
-        public function set accessoryPosition(value:String):void
-        {
-            itemRendererProperties.accessoryPosition = value;
-        }
-
-        public function set accessoryGap(value:Number):void
-        {
-            itemRendererProperties.accessoryGap = value;
-        }
-
-        public function set gap(value:Number):void
-        {
-            itemRendererProperties.gap = value;
-        }
-
-        [Inspectable(type="String", enumeration="left,center,right,justify")]
-        public function set horizontalAlign(value:String):void
-        {
-            itemRendererProperties.horizontalAlign = value;
-        }
-
-        [Inspectable(type="String", enumeration="top,middle,bottom")]
-        public function set verticalAlign(value:String):void
-        {
-            itemRendererProperties.verticalAlign = value;
-        }
-
-        public function set layoutOrder(value:String):void
-        {
-            itemRendererProperties.layoutOrder = value;
-        }
-
-        public function set enabled(value:Boolean):void
-        {
-            super.isEnabled = value;
-        }
-
-        public function get enabled():Boolean
-        {
-            return super.isEnabled;
         }
 
         [PercentProxy("percentWidth")]

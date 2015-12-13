@@ -17,6 +17,16 @@ package feathers.spark
             layout = new AnchorLayout();
         }
 
+        public function set enabled(value:Boolean):void
+        {
+            super.isEnabled = value;
+        }
+
+        public function get enabled():Boolean
+        {
+            return super.isEnabled;
+        }
+
         override protected function draw():void
         {
             var scale:Number = SparkGlobal.scale;

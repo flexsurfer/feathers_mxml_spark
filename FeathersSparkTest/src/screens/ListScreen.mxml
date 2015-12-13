@@ -14,7 +14,7 @@
         </spark:Header>
     </spark:customHeader>
 
-    <spark:List id="list" top="0" bottom="0" left="0" right="0" clipContent="false" autoHideBackground="true"
+    <spark:List id="list" left="0" right="0" clipContent="false" autoHideBackground="true"
                 labelField="text"
                 isSelectable="{settings.isSelectable}"
     allowMultipleSelection = "{settings.allowMultipleSelection}"
