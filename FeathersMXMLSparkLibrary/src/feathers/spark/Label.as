@@ -15,6 +15,7 @@ package feathers.spark
         private var _styleObject:Object = {};
 
         private var _isStylesInvalid:Boolean;
+        private var _formats:Array = ["elementFormat", "disabledElementFormat"];
 
         public function Label()
         {
@@ -78,32 +79,35 @@ package feathers.spark
         {
             if (_isStylesInvalid)
             {
-                var ef:ElementFormat = textRendererProperties.elementFormat;
-
-                if (ef)
+                for (var i:int = 0; i < _formats.length; i++)
                 {
-                    ef = ef.clone();
+                    var ef:ElementFormat = textRendererProperties[_formats[i]];
 
-                    if (_styleObject.color != null)
-                        ef.color = _styleObject.color;
-                    if (_styleObject.fontSize)
-                        ef.fontSize = _styleObject.fontSize;
-
-                    var fd:FontDescription = ef.fontDescription;
-
-                    if (fd)
+                    if (ef)
                     {
-                        fd = fd.clone();
+                        ef = ef.clone();
 
-                        if (_styleObject.fontName)
-                            fd.fontName = _styleObject.fontName;
-                        if (_styleObject.fontWeight)
-                            fd.fontWeight = _styleObject.fontWeight;
+                        if (_styleObject.color != null)
+                            ef.color = _styleObject.color;
+                        if (_styleObject.fontSize)
+                            ef.fontSize = _styleObject.fontSize;
 
-                        ef.fontDescription = fd;
+                        var fd:FontDescription = ef.fontDescription;
+
+                        if (fd)
+                        {
+                            fd = fd.clone();
+
+                            if (_styleObject.fontName)
+                                fd.fontName = _styleObject.fontName;
+                            if (_styleObject.fontWeight)
+                                fd.fontWeight = _styleObject.fontWeight;
+
+                            ef.fontDescription = fd;
+                        }
+
+                        textRendererProperties[_formats[i]] = ef;
                     }
-
-                    textRendererProperties.elementFormat = ef;
                 }
 
                 _isStylesInvalid = false;
