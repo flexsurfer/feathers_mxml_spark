@@ -5,12 +5,15 @@ package feathers.spark
 {
     import feathers.utils.math.roundToNearest;
 
+    import flash.display.Stage;
+
     import flash.text.StyleSheet;
 
     public class SparkGlobal
     {
         public static var scale:Number;
         public static var cssStyles:StyleSheet;
+        public static var stage:Stage;
 
         public function SparkGlobal()
         {

@@ -9,10 +9,14 @@ package feathers.spark
 
     import mx.core.IFactory;
 
+    import starling.display.DisplayObject;
+
     import starling.events.Event;
 
     public class StackScreenNavigatorItem extends feathers.controls.StackScreenNavigatorItem
     {
+        private var _instanceOnce:Boolean = false;
+
         public function StackScreenNavigatorItem(screen:Object = null, pushEvents:Object = null,
                                                  popEvent:String = null, properties:Object = null)
         {
@@ -43,6 +47,27 @@ package feathers.spark
         public function get data():Object
         {
             return properties["data"];
+        }
+
+        public function get instanceOnce():Boolean
+        {
+            return _instanceOnce;
+        }
+
+        public function set instanceOnce(value:Boolean):void
+        {
+            _instanceOnce = value;
+        }
+
+        override public function getScreen():DisplayObject
+        {
+            if (_instanceOnce && screen is Class)
+            {
+                var ScreenType:Class = Class(screen);
+                screen = new ScreenType();
+            }
+
+            return super.getScreen();
         }
     }
 }

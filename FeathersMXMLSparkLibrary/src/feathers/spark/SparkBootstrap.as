@@ -50,6 +50,7 @@ package feathers.spark
                 addChild(preloader);
             }
 
+            SparkGlobal.stage = this.stage;
             VectorClip.container = this;
         }
 
