@@ -1,3 +1,5 @@
+# There is no reason to support this project, since there is React Native.
+
 # Feathers MXML Spark Library
 
 The library with components extended Feathers components [Feathers SDK](http://feathersui.com/sdk/), to work like with Flex Spark components
